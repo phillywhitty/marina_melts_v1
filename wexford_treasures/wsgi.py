@@ -1,5 +1,5 @@
 """
-WSGI config for marina_melts project.
+WSGI config for wexford_treasures project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'marina_melts.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wexford_treasures.settings')
 
 application = get_wsgi_application()
