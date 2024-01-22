@@ -13,17 +13,20 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import dj_database_url
 
+if os.path.exists("env.py"):
+  import env 
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('840f92ftelx+nrbpu%$docat*wv_43c5m8ln^rk31(s377!dy!')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
@@ -125,7 +128,7 @@ WSGI_APPLICATION = 'wexford_treasures.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('postgres://eygauysf:tYrJQuSrYI3VWsgHgG9RGwaSjfAf2jBW@horton.db.elephantsql.com/eygauysf'))
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
 else:    
     DATABASES = {
