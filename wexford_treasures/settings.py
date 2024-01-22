@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -22,12 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p@ei#69*b*zz3u4yie-$()@cy^l(+x9&@6ypx+r0lm(3%_9hr7'
+SECRET_KEY = os.environ.get('840f92ftelx+nrbpu%$docat*wv_43c5m8ln^rk31(s377!dy!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ["8000-phillywhitt-wexfordtrea-4fuituqzqr9.ws-eu107.gitpod.io",]
+ALLOWED_HOSTS = ['wexford-treasures-afe33013c7ab.herokuapp.com/', 'localhost']
 
 
 # Application definition
@@ -122,12 +123,18 @@ WSGI_APPLICATION = 'wexford_treasures.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('postgres://eygauysf:tYrJQuSrYI3VWsgHgG9RGwaSjfAf2jBW@horton.db.elephantsql.com/eygauysf'))
     }
-}
+else:    
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
 
 
 # Password validation

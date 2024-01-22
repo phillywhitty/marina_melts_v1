@@ -29,3 +29,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+# class ProductReview(models.Model):
+#     REVIEW_RATINGS = [1 , '']
+#     ratings = models.PositiveIntegerField(choices=review)

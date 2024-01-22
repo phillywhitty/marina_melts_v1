@@ -1,0 +1,1 @@
+web: gunicorn wexford_treasures.wsgi:application
