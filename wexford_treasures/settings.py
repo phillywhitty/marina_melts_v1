@@ -29,9 +29,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = True
 
-ALLOWED_HOSTS = ['wexford-treasures-afe33013c7ab.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['wexford-treasures-afe33013c7ab.herokuapp.com', '8000-phillywhitt-wexfordtrea-4fuituqzqr9.ws-eu107.gitpod.io']
 
 
 # Application definition
