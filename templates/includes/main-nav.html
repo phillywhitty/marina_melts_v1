@@ -23,8 +23,9 @@
                     Hampers</a>
                 <a href="{% url 'products' %}?category=food_hampers" class="dropdown-item">Food Hampers</a>
                 <a href="{% url 'products' %}?category=wine_and_cheese" class="dropdown-item">Wine & Cheese Hampers</a>
-                <a href="{% url 'products' %}?category=shirts" class="dropdown-item">Wellness Hampers</a>
-                <a href="{% url 'products' %}?category=activewear,essentials,jeans,shirts" class="dropdown-item">All
+                <a href="{% url 'products' %}?category=wellness" class="dropdown-item">Wellness Hampers</a>
+                <a href="{% url 'products' %}?category=alcohol_free_hampers,food_hampers,wine_and_cheese,wellness"
+                    class="dropdown-item">All
                     Hampers</a>
             </div>
         </li>
@@ -35,10 +36,10 @@
                 Gifts
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="{% url 'products' %}?category=bed_bath" class="dropdown-item">Baby Gifts</a>
-                <a href="{% url 'products' %}?category=kitchen_dining" class="dropdown-item">Chocolate Gifts</a>
-                <a href="{% url 'products' %}?category=kitchen_dining" class="dropdown-item">Teddy Bear Gifts</a>
-                <a href="{% url 'products' %}?category=bed_bath,kitchen_dining" class="dropdown-item">All Gifts</a>
+                <a href="{% url 'products' %}?category=baby_gifts" class="dropdown-item">Baby Gifts</a>
+                <a href="{% url 'products' %}?category=chocolate_gifts" class="dropdown-item">Chocolate Gifts</a>
+                <a href="{% url 'products' %}?category=teddy_bear" class="dropdown-item">Teddy Bear Gifts</a>
+                <a href="{% url 'products' %}?category=baby_gifts,chocolate_gifts,teddy_bear" class="dropdown-item">All Gifts</a>
             </div>
         </li>
 
@@ -54,6 +55,5 @@
                 <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All
                     Specials</a>
             </div>
-        </li>
     </ul>
 </div>

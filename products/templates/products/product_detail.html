@@ -106,52 +106,40 @@
                 </form>
                 <br>
 
-                {% for r in reviews %}
-                {{r.comment}}
-                {{r.rate}}
-                {% endfor %}
-                
+
+                <!-- Review form (only shown to logged-in users) -->
+                {% if user.is_authenticated %}
+                <h2>Write Your Review</h2>
                 <form method="POST">
                     {% csrf_token %}
-                    <h5>Write Your Review</h5>
-
-                    <div>
-                        <!-- Rating stars -->
-                        <label>How do you rate this product?</label>
-                        <br>
-                        <div class="rate">
-                            <input type="radio" name="rating" id="rating5" value="5" required /><label for="rating5"
-                                title="5"></label>
-                            <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4"
-                                title="4"></label>
-                            <input type="radio" name="rating" id="rating3" value="3" required /><label for="rating3"
-                                title="3"></label>
-                            <input type="radio" name="rating" id="rating2" value="2" required /><label for="rating2"
-                                title="2"></label>
-                            <input type="radio" name="rating" id="rating1" value="1" required /><label for="rating1"
-                                title="1"></label>
-                        </div>
-                        <br>
-                        Review: {{product.review}}
-                        <textarea name="review" rows="4" class="form-control"></textarea>
-                        <br>
-                        {% if user.is_authenticated %}
-                        {% if orderproduct %}
-                        <input type="submit" value="Submit Review" class="btn btn-primary">
-                        {% endif %}
-                        {% else %}
-                        <p>You must be logged in to post a review. <span><a href="{% url 'account_login' %}">Login
-                                    now</a></span></p>
-                        <button type="submit" class="btn btn-primary"> <span class="text">Submit Review</span></button>
-                        {% endif %}
+                    <label for="id_comment">Review Comment:</label><br>
+                    <textarea name="comment" id="id_comment" rows="4" class="form-control"></textarea><br>
+                    <label for="id_rate">Rating:</label><br>
+                    <div class="rating">
+                        <label for="star5" title="5 stars">5</label>
+                        <input type="radio" id="star5" name="rate" value="5" required />
+                        <label for="star4" title="4 stars">4</label>
+                        <input type="radio" id="star4" name="rate" value="4" />
+                        <label for="star3" title="3 stars">3</label>
+                        <input type="radio" id="star3" name="rate" value="3" />
+                        <label for="star2" title="2 stars">2</label>
+                        <input type="radio" id="star2" name="rate" value="2" />
+                        <label for="star1" title="1 star">1</label>
+                        <input type="radio" id="star1" name="rate" value="1" />
                     </div>
-                    <button type="submit" class="btn btn-dark"> <span class="text">Submit Review</span></button>
+                    <br>
+                    <button type="button" class="btn btn-dark">Submit Review</button>
+                </form>
+                {% else %}
+                <h2>Login Required</h2>
+                <p>You must be logged in to leave a review. <a href="{% url 'account_login' %}">Login here</a>.</p>
+                {% endif %}
+
             </div>
         </div>
-    </div>
-    {% endblock %}
+        {% endblock %}
 
-    {% block postloadjs %}
-    {{ block.super }}
-    {% include 'products/includes/quantity_input_script.html' %}
-    {% endblock %}
+        {% block postloadjs %}
+        {{ block.super }}
+        {% include 'products/includes/quantity_input_script.html' %}
+        {% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserProfile
+from .models import UserProfile, MyWallet
 
 
 class UserProfileForm(forms.ModelForm):
@@ -32,3 +32,15 @@ class UserProfileForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
             self.fields[field].label = False
+
+
+class MyWalletForm(forms.ModelForm):
+    class Meta:
+        model = MyWallet
+        fields = ['default_card_number', 'default_expire_number', 'default_cvv_number']
+    def clean_default_cvv_number(self):
+        # Add any custom validation logic for the CVV number if needed
+        cvv_number = self.cleaned_data.get('default_cvv_number')
+        if cvv_number and (cvv_number < 100 or cvv_number > 999):
+            raise forms.ValidationError("CVV number must be a 3-digit number.")
+        return cvv_number

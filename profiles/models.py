@@ -33,3 +33,19 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
     # Existing users: just save the profile
     instance.userprofile.save()
+
+
+
+class MyWallet(models.Model):
+    """
+    A user profile model for maintaining default
+    card information
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_card_number = models.CharField(max_length=16, unique=True, blank=True)
+    default_expire_number = models.DateField(auto_now=False)
+    default_cvv_number = models.IntegerField(unique=True, blank=True)
+   
+
+    def __str__(self):
+        return self.user.username

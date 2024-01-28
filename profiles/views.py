@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile
-from .forms import UserProfileForm
+from .models import UserProfile, MyWallet
+from .forms import UserProfileForm, MyWalletForm
 
 from checkout.models import Order
 
@@ -48,3 +48,19 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+def WalletView(request):
+    # Assuming you have a user object (replace with your actual user retrieval logic)
+    user = request.user
+    # Retrieve or create the associated wallet for the user
+    wallet, created = MyWallet.objects.get_or_create(user=user)
+    if request.method == 'POST':
+        # If the form is submitted, process the form data
+        form = MyWalletForm(request.POST, instance=wallet)
+        if form.is_valid():
+            form.save()
+            return redirect('success_page')  # Redirect to a success page after saving the form
+    else:
+        # If the form is not submitted, initialize the form with existing data
+        form = MyWalletForm(instance=wallet)
+    return render(request, 'profiles/wallet.html', {'form': form})

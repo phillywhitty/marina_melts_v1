@@ -5,9 +5,9 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category, Review
-from .forms import ProductForm
+from .forms import ProductForm, ReviewForm
 
-# Create your views here.
+# Product Views.
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
@@ -65,9 +65,21 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
 
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            new_review = form.save(commit=False)
+            new_review.product = product
+            new_review.user = request.user
+            new_review.save()
+            return redirect('product_detail', product_id=product_id)
+    else:
+        form = ReviewForm() 
+
     context = {
         'product': product,
-        'reviews': reviews
+        'reviews': reviews,
+        'form': form,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -140,13 +152,3 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
 
-
-# def Review(request):
-#     if request.method == "GET":
-#         prod_id = request.GET.get('prod_id')
-#         product = Product.objects.get(id=prod_id)
-#         comment = request.GET.get('comment')
-#         rate = request.GET.get('rate')
-#         user = request.user
-#         Review(user=user, product=product, comment=comment, rate=rate).save()
-#         return redirect('product_detail', id=prod_id)
