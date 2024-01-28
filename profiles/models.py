@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
 from django_countries.fields import CountryField
+from products.models import Product
 
 
 class UserProfile(models.Model):
@@ -49,3 +49,13 @@ class MyWallet(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class WishlistItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)  
+    added_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username
+    

@@ -29,20 +29,11 @@
             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
+                <button class="btn btn-black rounded-0 text-uppercase float-right">Save Card Information</button>
             </form>
         </div>
     </div>
 </div>
-<!-- <form method="post" action="{% url 'WalletView' %}">
-    {% csrf_token %}
-
-    {{ form.as_p }}
-
-    <!-- You can customize the form layout further if needed -->
-
-<input type="submit" value="Submit">
-</form> -->
 {% endblock %}
 
 {% block postloadjs %}
