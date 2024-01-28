@@ -42,9 +42,9 @@ class MyWallet(models.Model):
     card information
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_card_number = models.CharField(max_length=16, unique=True, blank=True)
-    default_expire_number = models.DateField(auto_now=False)
-    default_cvv_number = models.IntegerField(unique=True, blank=True)
+    card_number = models.CharField(max_length=16, unique=True, blank=True)
+    expire_number = models.DateField(auto_now=False)
+    cvv_number = models.IntegerField(unique=True, blank=True)
    
 
     def __str__(self):

@@ -3,6 +3,6 @@ from .models import MyWallet
 
 
 class MyWalletAdmin(admin.ModelAdmin):
-    list_display = ('user', 'default_card_number', 'default_expire_number', 'default_cvv_number')  
+    list_display = ('user', 'card_number', 'expire_number', 'cvv_number')  
 
 admin.site.register(MyWallet, MyWalletAdmin)
