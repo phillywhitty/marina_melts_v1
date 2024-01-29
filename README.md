@@ -28,7 +28,6 @@
     - [Icons](#icons)
     - [Colors](#colors)
     - [Images](#images)
-    - [Styling](#styling)
     </details></li>
     </ul>
 </details>
@@ -203,20 +202,11 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
   <img src="media/readme_images(1).png" alt="Images">
 </div>
 
-- The site has a heavy focus on image use, using full-size quality images for exhibition purposes.
-- As such, the images use a script while loading that blurs thumbnails and swaps in the full quality image when fully loaded.
-- In the main gallery, images are displayed in three columns responsively, so they can easily be seen on any size device.
-- Clicking on a small image will open up a full-page modal that displays the image in detail.
-- The images will automatically space themselves vertically within the column, so the gallery height is even.
-- Images will swap out on selecting another country, resetting the loading blur feature and changing URLs.
-
-### Styling
-- For this project I have utilised Bootstrap 4.5 source files to override their class defaults to my liking, making customisation much easier. The entire site can be restyled with a single switch in the code.
-- The primary and secondary colors have been applied to bootstrap classes for easy use across the site.
-- Using the SASS, sharp-edged boxes have been applied by default, taking advantage of the features.
-- Responsive text sizing has also been enabled using SASS.
-- As the site has a beeline focus on use, links on each page are re-used to direct the user to either the Gallery or the Contact page no matter where they look.
-- Animations are utilised for smoothness in certain transitions, such as when a new country is selected in the gallery or on the Travel Gallery link.
+- The website prominently features high-resolution images of hampers to showcase their quality and presentation, enticing visitors with visual appeal.
+- Utilizing a script during image loading ensures seamless user experience by initially displaying blurred thumbnails that transition into sharp, full-quality images once fully loaded, enhancing the website's performance.
+- Hampers are elegantly presented in a responsive grid layout, ensuring optimal viewing experience across various devices and screen sizes.
+- Visitors can view hampers in detail by clicking on small images, triggering a full-page modal that provides an immersive viewing experience.
+- The website dynamically adjusts image spacing within columns, ensuring a balanced and visually pleasing product view layout, contributing to an engaging user experience that encourages exploration.
 
 ----
 
