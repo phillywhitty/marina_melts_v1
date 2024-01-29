@@ -171,24 +171,24 @@ User Stories for Wexford Treasures:
 
 ## Visual Design
 ### Wireframes
-Wireframes: https://drive.google.com/drive/folders/1WwDSap35rXV1i8_9hCPBqiXvpMdoFJsQ?usp=sharing
+Wireframes: ""
 
 ### Fonts
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92331221-6f750000-f075-11ea-8096-288bcc957e33.png" alt="Fonts">
+  <img src="media/readme_fonts.png" alt="Fonts">
 </div>
 
-- The primary font, [Montserrat](https://fonts.google.com/specimen/Montserrat#standard-styles) was chosen because it is standard, plain and informative but not too rigid. It looks friendly and conversational but holds a seriousness. It is also sans-serif, making it very easily readable throughout different color schemes and complementary to the font used for Headings.
-- The secondary font, [Julius Sans One](https://fonts.google.com/specimen/Julius+Sans+One#standard-styles) was chosen because it is thin, elegant and refined yet it has flair. As a font, it gave me the impression of an art gallery. It is sans-serif, so it is clear, clean and simple, maintaining the idea of a minimalist aesthetic. It was chosen for headings as it is evident but doesn't distract, keeping the eyes more focused on the photography.
+- The primary font Raleway was choosen because it is a sleek and elegant sans-serif font renowned for its modern appeal, readability, and versatility, making it an ideal choice for conveying sophistication and style across various design projects
 
 ### Icons
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92331590-1fe40380-f078-11ea-814b-d15b413f59aa.png" alt="Icons">
+  <img src="media/readme_icons.png" alt="Icons">
 </div>
 
-- Icons are taken from the [Fontawesome](https://fontawesome.com/) Icon library and are utilised as classes in the `<i>` tag.
-- As they are utilised as classes, they can easily be styled using other classes or IDs in the same tag. I often used Bootstrap classes to style them uniformly.
-- Icons are utilised in the footer for social account icons and the "scroll-to-top" arrow on the gallery page.
+Icons sourced from the Font Awesome Icon library are implemented as classes within the <i> tag.
+- Because these icons are utilized as classes, they can be effortlessly styled using other classes or IDs within the same tag. 
+- Bootstrap classes are frequently employed to ensure uniform styling. 
+ 
 
 ### Colors
 <div align="center">

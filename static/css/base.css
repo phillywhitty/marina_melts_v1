@@ -1,4 +1,4 @@
-html {
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap') html {
     height: 100%;
 }
 
@@ -8,7 +8,7 @@ body {
     background-position-y: 100px;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Lato';
+    font-family: 'Raleway';
 }
 
 /* from Bulma */
