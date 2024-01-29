@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('/media/homepage_background_img_wex.png') no-repeat center center fixed;
+    background: url('/media/hamper-background-image-3.png') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
@@ -19,8 +19,27 @@ body {
     width: 1.5rem;
 }
 
+.navdiv {
+    height: 15vh;
+}
+
 .logo-font {
     text-transform: uppercase;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-font {
+    margin-right: 10px;
+}
+
+.logo-image {
+    width: 200px;
+    height: auto;
+    margin-left: 10px;
 }
 
 .main-logo-link {
