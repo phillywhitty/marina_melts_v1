@@ -40,7 +40,7 @@
     <summary><a href="#page-elements">Page Elements</a></summary>
 
     - [All Pages](#all-pages)
-    - [Index Page](#index-page)
+    - [Home Page](#home-page)
     - [Gallery Page](#gallery-page)
     - [Contact Page](#contact-page)
     </details></li>
@@ -219,31 +219,36 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
   <img src="media/readme_navbar_small_screens.png" alt="Small Header">
 </div>
 
-- The Navbar is simple, providing only three options with only two very evident the Gallery and Contact pages, to maintain the minimalist style.
-- The Logo is always highlighted, swapping position as necessary depending on device size.
+- The Navbar is simple, providing only four options containing All Products, Hampers, Gifts and Special Offers to maintain the minimalist style.
+- The Logo and Heading remains to the left, they are removed to suit smaller devices to leave more space for my dropdown nav.
 - On smaller devices, the menu becomes collapsible.
-- The mobile nav button has been placed to the right for ease of use with one hand.
-- The navbar is fixed so it is visible no matter how far you scroll.
+- The mobile nav button has been placed to the left for ease of use with one hand.
+- Logged-in users see their account logo and shopping cart balance to the right for quick access to personal and shopping information
 
 #### Footer
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92339926-c18b4500-f0b8-11ea-9101-c5f3e55b4b95.png" alt="Medium Footer">
-  <img src="https://user-images.githubusercontent.com/44118951/92339924-c0f2ae80-f0b8-11ea-8fb1-7f7593dd2dae.png" alt="Small Footer">
+  <img src="media/readme_footer.png" alt="Medium Footer">
+  <img src="media/readme_footer_sm_devices.png" alt="Small Footer">
 </div>
 
-- Located at the bottom of every page, mainly highlighting contact and social aspects with the photographer.
-- Made of three columns, changing shape for larger or smaller devices.
-- The first column has a newsletter signup box that uses EmailJS to make contact with the photographer.
-- A modal confirming the message has been sent and changes on success or an error is used for a response.
-- A message encouraging contact is used as the second column.
-- The third column represents social media links, highlighting 500px as the place to purchase photos.
+- Located at the bottom of every page, mainly highlighting address,email and social aspects with a stripe image to make a user feel secure payments will occur.
+- It changes shape for larger or smaller devices.
+- Social media logos brings users to Wexford Treasure on social media for the latest product launches, promotions, and behind-the-scenes glimpses
 
-### Index Page
-#### Jumbotron Image
-- Used as a splash image that highlights a dramatic photograph, representing a sense of adventure.
-- An image with a person in it is used so the viewer can connect with it on a personal level.
-- Uses the javascript lazy loading feature as the image is large and must show all at once for an impact
-- Text is blurred and comes into view with the image to draw attention to the phrase.
+
+
+
+### Home Page
+
+<div align="center">
+  <img src="media/readme_home_page.png" alt="Medium Footer">
+</div>
+
+- This is the home page, where every detail is crafted with my experience in mind. 
+- As soon as you land on the  website, you're greeted with a captivating background image carefully selected to engage users senses and set the tone for their journey. 
+- The streamlined navbar ensures effortless navigation, allowing users to explore hampers with ease.
+-  At the heart of the page, the prominent heading stands proudly next to the wexford treasure hamper logo, inviting users to discover the essence of the brand. 
+- For users ready to embark on their shopping adventure, a centrally located "Shop Now" button beckons, ready to whisk them away to explore the exquisite range of products.
 
 #### About Section
 <div align="center">
