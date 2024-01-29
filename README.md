@@ -260,20 +260,14 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
   <img src="media/readme_products.png" alt="About">
 </div>
 
-- After the initial image to give a strong impact, the about section is presented in the contrasting accent color to make it stand out.
-- Hopefully, the impact will create enough interest to read about the photographer.
-- The section is responsive and the two columns will stack on resize.
-- The section contains a fully responsive image and a small text section with responsively sized text.
-- Contains a small link to a place where you can purchase or license photographs, highlighted and underlined in bold, this is in addition to the link in the footer.
+- The product, hamper, gift, and special offer pages on our website boast a cohesive and user-friendly design.
+- Each page showcases our diverse range of offerings in a consistent layout featuring four columns, ensuring an organized and visually appealing display.
+- Designed to be responsive, the layout seamlessly adjusts to suit all devices, from desktops to mobile phones, providing an optimal viewing experience for every user.
 
-#### Travel Gallery Link
-- A full-width banner link that switches to brings the user to the gallery.
-- Animated with CSS to draw attention on hover.
-- Expands in size, seeming to exit from the page, and darkens the background to draw attention to the item.
 
-### Gallery Page
+### Product Management Page
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92344160-fd78d700-f0c5-11ea-9017-7046a210424f.png" alt="Gallery Page">
+  <img src="media/readme_product_manage.png" alt="Gallery Page">
 </div>
 
 #### Interactive Map
