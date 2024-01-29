@@ -41,8 +41,10 @@
 
     - [All Pages](#all-pages)
     - [Home Page](#home-page)
-    - [Gallery Page](#gallery-page)
-    - [Contact Page](#contact-page)
+    - [Product Page](#product-page)
+    - [Hampers Page](#hampers-page)
+    - [Gifts Page](#gifts-page)
+    - [Special Offers Page](#special-offers-page)
     </details></li>
 
     <li><details>
@@ -250,9 +252,12 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 -  At the heart of the page, the prominent heading stands proudly next to the wexford treasure hamper logo, inviting users to discover the essence of the brand. 
 - For users ready to embark on their shopping adventure, a centrally located "Shop Now" button beckons, ready to whisk them away to explore the exquisite range of products.
 
-#### About Section
+#### Product Page
+#### Hampers Page
+#### Gifts Page
+#### Special Offers Page
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92338749-aae1ef80-f0b2-11ea-854d-6700642cdef9.png" alt="About">
+  <img src="media/readme_products.png" alt="About">
 </div>
 
 - After the initial image to give a strong impact, the about section is presented in the contrasting accent color to make it stand out.
