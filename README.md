@@ -192,18 +192,15 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 
 ### Colors
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92331821-a64d1500-f079-11ea-9ceb-a9b1b85872bd.png" alt="Color Pallette">
+  <img src="media/readme_color_palet.png" alt="Color Pallette">
 </div>
 
-- I wanted the site to maintain a minimal aesthetic, colors are very basic and clean for highlighting the photos.
-- The primary color used is black. This is used to create a stark contrast with the colors of the photos, drawing the eyes and focus on them. This removes distraction, a common practice in theatre, cinemas, etc. White is often used in galleries but has more to do with lighting and reflection. On most computer screens, wherein the light is emitted from the screen, black is a better choice.
-- One accent color was chosen, the green to give a thematic connection to nature, the outdoors and travel. A little bit more than black and white is necessary to have an impact.
-- Text is primarily written in white to contrast on the bold color backgrounds of the primary and accent colors.
-- Finally, a neutral grey color is used for the footer to set it apart from the other elements on the site.
+- The color palette of medium slate blue, moonstone, black, and white was chosen for the hamper website to evoke a sense of elegance, sophistication, and modernity. Medium slate blue adds a calming and trustworthy element, while moonstone lends a touch of softness and warmth. The use of black and white provides a classic and timeless backdrop, allowing the products to stand out while ensuring readability and clarity in design elements. Together, these colors create a harmonious and visually appealing aesthetic that resonates with the brand's upscale image and enhances the user experience
+
 
 ### Images
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92332253-c7633500-f07c-11ea-8f9e-a5f03b0fe1da.png" alt="Images">
+  <img src="media/readme_images(1).png" alt="Images">
 </div>
 
 - The site has a heavy focus on image use, using full-size quality images for exhibition purposes.
