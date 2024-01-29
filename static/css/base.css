@@ -3,8 +3,9 @@ html {
 }
 
 body {
-    background: url('/media/hamper-background-image-3.png') no-repeat center center fixed;
+    background: url('/media/wex-tres-bg-img-resized.png') no-repeat center center fixed;
     background-size: cover;
+    background-position-y: 100px;
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
@@ -42,24 +43,32 @@ body {
     margin-left: 10px;
 }
 
+.dropdown-item {
+    color: #81DDE4;
+}
+
+.text-info {
+    color: #81DDE4;
+}
+
 .main-logo-link {
     width: fit-content;
 }
 
 .shop-now-button {
-    background: black;
+    background: #8357F6;
     color: white;
     min-width: 260px;
 }
 
 .btn-black {
-    background: black;
+    background: #8357F6;
     color: white;
 }
 
 .btn-outline-black {
     background: white;
-    color: black !important;
+    color: #8357F6 !important;
     /* use important to override link colors for <a> elements */
     border: 1px solid black;
 }
@@ -67,7 +76,7 @@ body {
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
+    background: #8357F6;
     color: white !important;
 }
 
@@ -77,20 +86,20 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
+    background: #8357F6;
     color: white;
 }
 
 .text-black {
-    color: #000 !important;
+    color: #8357F6 !important;
 }
 
 .border-black {
-    border: 1px solid black !important;
+    border: 1px solid #8357F6 !important;
 }
 
 .bg-black {
-    background: #000 !important;
+    background: #8357F6 !important;
 }
 
 .overlay {
@@ -104,7 +113,7 @@ body {
 }
 
 a.category-badge>span.badge:hover {
-    background: #212529 !important;
+    background: #8357F6 !important;
     color: #fff !important;
 }
 
@@ -125,6 +134,18 @@ a.category-badge>span.badge:hover {
 input[name='q']::placeholder {
     color: #aab7c4;
 }
+
+#footer {
+    background-color: #8357F6;
+    margin-top: auto;
+    color: white;
+}
+
+.stripe-img {
+    width: 300px;
+}
+
+
 
 /* ------------------------------- bootstrap toasts */
 
@@ -149,7 +170,7 @@ input[name='q']::placeholder {
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 10px solid black;
+    border-bottom: 10px solid #8357F6;
     position: absolute;
     top: -10px;
     right: 36px;
@@ -350,4 +371,8 @@ input[name='q']::placeholder {
 .increment-qty,
 .decrement-qty {
     padding: .25rem .5rem !important;
+}
+
+footer {
+    background-color: white;
 }

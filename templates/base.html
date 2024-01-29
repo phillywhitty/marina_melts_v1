@@ -54,7 +54,7 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
                     <div class="logo-container">
-                        <h2 class="logo-font text-black my-0">
+                        <h2 class="logo-font text-black ml-5">
                             <strong>Wexford</strong><br>
                             Treasures</h2>
                         <img src="/media/logo-wex-treasures(4).png" class="logo-image">
@@ -155,6 +155,69 @@
     {% block page_header %}{% endblock %}
 
     {% block content %}{% endblock %}
+
+    <footer class="text-center text-lg-start" id="footer">
+        <div class="container d-flex justify-content-center p-4 border-bottom">
+            <div class="mr-5 d-none d-lg-block">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            <div id="social-links">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="mr-4 text-reset text-white"
+                    aria-label="Link to Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/" target="_blank" rel="noopener" class="mr-4 text-reset"
+                    aria-label="Link to Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="mr-4 text-reset"
+                    aria-label="Link to Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="mr-4 text-reset"
+                    aria-label="Link to LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="container  mt-5">
+            <div class="row mt-3 d-flex align-items-center">
+                <div class="col-md-4 col-lg-4 mx-auto mb-4 text-sm-center ">
+                    <h4 class="fw-bold mb-4">Wexford Treasures</h4>
+                    <h5 class="fw-bold mb-4">Contact:</h5>
+                    <p class="mb-0"><i class="fas fa-home mr-2 text-white"></i>
+                        20 Fictional Avenue,
+                        <br>
+                        Wexford, Ireland
+                    </p>
+                    <p class="mb-0"><i class="fas fa-phone mr-2 text-white"></i>Phone: 051 123456</p>
+                    <p><i class="fas fa-envelope mr-2 text-white"></i>Email: wexfordtreasures@gmail.com</p>
+                </div>
+                <div class="col-md-3 col-lg-2 d-flex justify-content-center ">
+                    <ul class="list-unstyled custom-list">
+                </div>
+                <div class="col-md-3 col-lg-2 d-flex justify-content-center ">
+                    <ul class="list-unstyled custom-list">
+                        <li><a class="text-decoration-none text-start text-black"
+                                href="{% url 'products' %}?category=food_hampers">Food Hampers</a></li>
+                        <li><a class="text-decoration-none text-start text-black"
+                                href="{% url 'products' %}?category=wellness">Wellness Hampers</a></li>
+                        <li><a class="text-decoration-none text-start text-black"
+                                href="{% url 'products' %}?category=alcohol_free_hampers">Non Alcohol Hampers</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-2 d-flex justify-content-center mb-4">
+                    <img src="/media/stripe-img.png" alt="Powered by Stripe" class="stripe-img">
+                </div>
+            </div>
+        </div>
+        <div class="text-center copyright">
+            <p class="mb-0">&copy; Copyright CI Project <a href="" target="_blank" rel="noopener"
+                    class="me-4 text-reset" aria-label="Link to GitHub">
+                    <i class="fab fa-github"></i>
+                </a></p>
+        </div>
+    </footer>
 
     {% block postloadjs %}
     <script type="text/javascript">
