@@ -215,8 +215,8 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 ### All Pages
 #### Navbar
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92332641-b831b680-f07f-11ea-8ff6-d414e661b490.png" alt="Medium Header">
-  <img src="https://user-images.githubusercontent.com/44118951/92332689-f29b5380-f07f-11ea-9646-162f1b7b66c9.png" alt="Small Header">
+  <img src="media/readme_navbar_big_screen.png" alt="Medium Header">
+  <img src="media/readme_navbar_small_screens.png" alt="Small Header">
 </div>
 
 - The Navbar is simple, providing only three options with only two very evident the Gallery and Contact pages, to maintain the minimalist style.
