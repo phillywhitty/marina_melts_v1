@@ -141,7 +141,7 @@ User goals are:
 - Access detailed product descriptions and specifications to make informed buying decisions.
 - Follow the journey and inspiration behind each hamper collection, including the stories and craftsmanship involved.
 
-Horizon Photography fills these needs by:
+Wexford Treasures fills these needs by:
 - Featuring captivating visuals of our hampers, enticing exploration.
 - Showcasing an extensive gallery of hampers on the product page.
 - Offering seamless communication with a prominent "Email" link in the footer.
@@ -151,22 +151,23 @@ Horizon Photography fills these needs by:
 
 ### Business Goals
 The Business Goals of Wexford Treasures are:
-- Display and highlight the photographer's work in a unique way.
-- Gain subscribers through the newsletter.
-- Provide easy ways to communicate with the photographer.
-- Gain interest and connect with social media.
-- Connect to where the photos are sold.
+- Showcase and emphasize the uniqueness of our curated hampers.
+- Grow the subscriber base through an engaging newsletter.
+- Facilitate seamless communication channels for customer inquiries and support.
+- Enhance brand visibility and engagement through active social media presence.
+- Provide accessible pathways for customers to purchase our hampers.
 
 ### User Stories
-1. As a user interested in photography, I expect to see lots of different beautiful photos.
-0. I expect the photos to be highlighted first and foremost.
-0. As a user interested in travel, I expect to see different countries on display.
-0. As a user interested in different countries, I expect to see information on the countries.
-0. As a person interested in hiring a photographer, I expect to find an easy way to contact the photographer.
-0. I expect to hear a little about the photographer if I am interested.
-0. I expect to be able to follow the photographer through social media.
-0. I would like to be able to hear about the photographer's updates through social media.
-0. If I were interested in buying a photo, I expect to know where.
+User Stories for Wexford Treasures:
+- As a gift shopper, I anticipate discovering a diverse range of beautifully curated hampers for various occasions.
+- I expect the hampers to be prominently featured, allowing me to easily explore different collections and themes.
+- As a gourmet enthusiast, I look forward to exploring hampers inspired by different cuisines and premium ingredients.
+- As someone seeking gift inspiration, I expect to find informative details about each hamper's contents and presentation.
+- As a customer interested in purchasing a hamper, I expect to find a convenient way to contact customer support for inquiries or assistance.
+- I anticipate learning about the stories behind each curated hamper collection, providing insight into the craftsmanship and inspiration behind the creations.
+- As someone who enjoys staying updated, I look forward to following Wexford Treasures on social media for the latest product launches, promotions, and behind-the-scenes glimpses.
+- I expect to receive timely updates and exclusive offers from Wexford Treasures through their social media channels.
+- If I decide to make a purchase, I expect to easily find information on how to place an order and complete the transaction.
 
 ## Visual Design
 ### Wireframes
