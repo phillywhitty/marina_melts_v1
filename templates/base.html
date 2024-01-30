@@ -6,6 +6,7 @@
 <head>
 
     {% block meta %}
+    <!-- Meta tags -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,6 +15,7 @@
     {% block extra_meta %}{% endblock %}
 
     {% block corecss %}
+    <!-- Core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
@@ -23,6 +25,7 @@
     {% block extra_css %}{% endblock %}
 
     {% block corejs %}
+    <!-- Core JS -->
     <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -44,185 +47,210 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
-        <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black text-white">
-                <h4 class="logo-font my-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>
+    <!-- Header Section -->
+    <section>
+        <header class="container-fluid fixed-top">
+            <!-- Delivery Banner -->
+            <div id="delivery-banner" class="row text-center">
+                <div class="col bg-black text-white">
+                    <h4 class="logo-font my-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>
+                </div>
             </div>
-        </div>
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex navdiv">
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <div class="logo-container">
-                        <h2 class="logo-font text-black ml-5">
-                            <strong>Wexford</strong><br>
-                            Treasures</h2>
-                        <img src="/media/logo-wex-treasures(4).png" class="logo-image">
-                    </div>
-                </a>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'products' %}">
-                    <div class="input-group w-100">
-                        <input class="form-control border border-black rounded-0" type="text" name="q"
-                            placeholder="Search our site">
-                        <div class="input-group-append">
-                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                                <span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span>
-                            </button>
+            <!-- Top Navigation -->
+            <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex navdiv">
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                        <div class="logo-container">
+                            <h2 class="logo-font text-black ml-5">
+                                <strong>Wexford</strong><br>
+                                Treasures</h2>
+                            <img src="/media/logo-wex-treasures(4).png" class="logo-image">
                         </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div>
-                                    <i class="fas fa-user fa-lg"></i>
-                                </div>
-                                <p class="my-0">My Account</p>
+                    </a>
+                </div>
+                <!-- Search Form -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <form method="GET" action="{% url 'products' %}">
+                        <div class="input-group w-100">
+                            <input class="form-control border border-black rounded-0" type="text" name="q"
+                                placeholder="Search our site">
+                            <div class="input-group-append">
+                                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
                             </div>
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                            {% endif %}
-                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                            <a href="{% url 'wallet' %}" class="dropdown-item">My Wallet</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
                         </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                            href="{% url 'view_bag' %}">
-                            <div class="text-center">
-                                <div>
-                                    <i class="fas fa-shopping-bag fa-lg"></i>
+                    </form>
+                </div>
+                <!-- User Account and Shopping Bag -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                        <!-- User Account Dropdown -->
+                        <li class="list-inline-item dropdown">
+                            <!-- User Account Link -->
+                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div>
+                                        <i class="fas fa-user fa-lg"></i>
+                                    </div>
+                                    <p class="my-0">My Account</p>
                                 </div>
-                                <p class="my-0">
-                                    {% if grand_total %}
-                                    €{{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                    €0.00
-                                    {% endif %}
-                                </p>
+                            </a>
+                            <!-- User Account Dropdown Menu -->
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                                {% endif %}
+                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'wallet' %}" class="dropdown-item">My Wallet</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                {% endif %}
                             </div>
-                        </a>
-                    </li>
-                </ul>
+                        </li>
+                        <!-- Shopping Bag Link -->
+                        <li class="list-inline-item">
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                                href="{% url 'view_bag' %}">
+                                <div class="text-center">
+                                    <div>
+                                        <i class="fas fa-shopping-bag fa-lg"></i>
+                                    </div>
+                                    <p class="my-0">
+                                        {% if grand_total %}
+                                        €{{ grand_total|floatformat:2 }}
+                                        {% else %}
+                                        €0.00
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
-                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {% include 'includes/mobile-top-header.html' %}
-                {% include 'includes/main-nav.html' %}
-            </nav>
-        </div>
-    </header>
+            <!-- Mobile Navigation -->
+            <div class="row bg-white">
+                <nav class="navbar navbar-expand-lg navbar-light w-100">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Mobile Top Header -->
+                    {% include 'includes/mobile-top-header.html' %}
+                    <!-- Main Navigation -->
+                    {% include 'includes/main-nav.html' %}
+                </nav>
+            </div>
+        </header>
+    </section>
 
     {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
-        {% with message.level as level %}
-        {% if level == 40 %}
-        {% include 'includes/toasts/toast_error.html' %}
-        {% elif level == 30 %}
-        {% include 'includes/toasts/toast_warning.html' %}
-        {% elif level == 25 %}
-        {% include 'includes/toasts/toast_success.html' %}
-        {% else %}
-        {% include 'includes/toasts/toast_info.html' %}
-        {% endif %}
-        {% endwith %}
-        {% endfor %}
-    </div>
+    <!-- Message Container -->
+    <section>
+        <div class="message-container">
+            {% for message in messages %}
+            {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+        </div>
+    </section>
     {% endif %}
 
     {% block page_header %}{% endblock %}
 
     {% block content %}{% endblock %}
 
-    <footer class="text-center text-lg-start" id="footer">
-        <div class="container d-flex justify-content-center p-4 border-bottom">
-            <div class="mr-5 d-none d-lg-block">
-                <span>Get connected with us on social networks:</span>
-            </div>
-            <div id="social-links">
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="mr-4 text-reset text-white"
-                    aria-label="Link to Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://twitter.com/" target="_blank" rel="noopener" class="mr-4 text-reset"
-                    aria-label="Link to Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="mr-4 text-reset"
-                    aria-label="Link to Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="mr-4 text-reset"
-                    aria-label="Link to LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-        </div>
-        <div class="container  mt-5">
-            <div class="row mt-3 d-flex align-items-center">
-                <div class="col-md-4 col-lg-4 mx-auto mb-4 text-sm-center ">
-                    <h4 class="fw-bold mb-2">Wexford Treasures</h4>
-                    <h5 class="fw-bold mb-2">Contact:</h5>
-                    <p class="mb-0"><i class="fas fa-home mr-2 text-white"></i>
-                        20 Fictional Avenue,
-                        <br>
-                        Wexford, Ireland
-                    </p>
-                    <p class="mb-0"><i class="fas fa-phone mr-2 text-white"></i>Phone: 051 123456</p>
-                    <p><i class="fas fa-envelope mr-2 text-white"></i>Email: wexfordtreasures@gmail.com</p>
+    <!-- Footer -->
+    <section>
+        <footer class="text-center text-lg-start" id="footer">
+            <div class="container d-flex justify-content-center p-4 border-bottom">
+                <div class="mr-5 d-none d-lg-block">
+                    <span>Get connected with us on social networks:</span>
                 </div>
-                <div class="col-md-3 col-lg-2 d-flex justify-content-center ">
-                    <ul class="list-unstyled custom-list"></ul>
-                </div>
-                <div class="col-md-3 col-lg-2 d-flex justify-content-center ">
-                    <ul class="list-unstyled custom-list">
-                        <li><a class="text-decoration-none text-start text-black"
-                                href="{% url 'products' %}?category=food_hampers">Food Hampers</a></li>
-                        <li><a class="text-decoration-none text-start text-black"
-                                href="{% url 'products' %}?category=wellness">Wellness Hampers</a></li>
-                        <li><a class="text-decoration-none text-start text-black"
-                                href="{% url 'products' %}?category=alcohol_free_hampers">Non Alcohol Hampers</a></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-lg-2 d-flex justify-content-center mb-4">
-                    <img src="/media/stripe-img.png" alt="Powered by Stripe" class="stripe-img">
+                <!-- Social Links -->
+                <div id="social-links">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                        class="mr-4 text-reset text-white" aria-label="Link to Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener" class="mr-4 text-reset"
+                        aria-label="Link to Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="mr-4 text-reset"
+                        aria-label="Link to Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="mr-4 text-reset"
+                        aria-label="Link to LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="text-center copyright">
-            <p class="mb-2">&copy; Copyright CI Project <a href="" target="_blank" rel="noopener"
-                    class="me-4 text-reset" aria-label="Link to GitHub">
-                    <i class="fab fa-github"></i>
-                </a></p>
-        </div>
-    </footer>
+            <!-- Footer Content -->
+            <div class="container  mt-5">
+                <div class="row mt-3 d-flex align-items-center">
+                    <div class="col-md-4 col-lg-4 mx-auto mb-4 text-sm-center ">
+                        <h4 class="fw-bold mb-2">Wexford Treasures</h4>
+                        <h5 class="fw-bold mb-2">Contact:</h5>
+                        <p class="mb-0"><i class="fas fa-home mr-2 text-white"></i>
+                            20 Fictional Avenue,
+                            <br>
+                            Wexford, Ireland
+                        </p>
+                        <p class="mb-0"><i class="fas fa-phone mr-2 text-white"></i>Phone: 051 123456</p>
+                        <p><i class="fas fa-envelope mr-2 text-white"></i>Email: wexfordtreasures@gmail.com</p>
+                    </div>
+                    <div class="col-md-3 col-lg-2 d-flex justify-content-center ">
+                        <ul class="list-unstyled custom-list"></ul>
+                    </div>
+                    <div class="col-md-3 col-lg-2 d-flex justify-content-center ">
+                        <ul class="list-unstyled custom-list">
+                            <li><a class="text-decoration-none text-start text-black"
+                                    href="{% url 'products' %}?category=food_hampers">Food Hampers</a></li>
+                            <li><a class="text-decoration-none text-start text-black"
+                                    href="{% url 'products' %}?category=wellness">Wellness Hampers</a></li>
+                            <li><a class="text-decoration-none text-start text-black"
+                                    href="{% url 'products' %}?category=alcohol_free_hampers">Non Alcohol Hampers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-lg-2 d-flex justify-content-center mb-4">
+                        <img src="/media/stripe-img.png" alt="Powered by Stripe" class="stripe-img">
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="text-center copyright">
+                <p class="mb-2">&copy; Copyright CI Project <a href="" target="_blank" rel="noopener"
+                        class="me-4 text-reset" aria-label="Link to GitHub">
+                        <i class="fab fa-github"></i>
+                    </a></p>
+            </div>
+        </footer>
+    </section>
 
 
 
 
     {% block postloadjs %}
+    <!-- Post-load JavaScript -->
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>
