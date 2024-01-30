@@ -162,7 +162,7 @@ input[name='q']::placeholder {
 }
 
 .stripe-img {
-    width: 250px;
+    min-width: 450px;
 }
 
 /* ------------------------------- Mailchimp */
