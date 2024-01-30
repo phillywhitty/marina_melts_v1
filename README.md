@@ -227,6 +227,14 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 - The mobile nav button has been placed to the left for ease of use with one hand.
 - Logged-in users see their account logo and shopping cart balance to the right for quick access to personal and shopping information
 
+
+#### Toasts
+<div align="center">
+  <img src="media/readme_toasts.png" alt="Medium Footer">
+</div>
+
+- Bootstrap toasts were incorporated to deliver customers with notifications regarding their interactions on the website.
+
 #### Footer
 <div align="center">
   <img src="media/readme_footer.png" alt="Medium Footer">
@@ -257,7 +265,7 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 #### Gifts Page
 #### Special Offers Page
 <div align="center">
-  <img src="media/readme_products.png" alt="About">
+  <img src="media/readme_products.png" alt="Products">
 </div>
 
 - The product, hamper, gift, and special offer pages on our website boast a cohesive and user-friendly design.
@@ -265,9 +273,17 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 - Designed to be responsive, the layout seamlessly adjusts to suit all devices, from desktops to mobile phones, providing an optimal viewing experience for every user.
 
 
+### Review
+<div align="center">
+  <img src="media/readme_review.png" alt="Review">
+</div>
+
+- Authenticated users can utilize the reviews section to submit feedback for a product.
+
+
 ### Product Management Page
 <div align="center">
-  <img src="media/readme_product_manage.png" alt="Gallery Page">
+  <img src="media/readme_product_manage.png" alt="Product Management">
 </div>
 
 #### Interactive Map

@@ -9,6 +9,7 @@ body {
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Raleway';
+    margin: 0px;
 }
 
 /* from Bulma */
@@ -20,8 +21,9 @@ body {
     width: 1.5rem;
 }
 
-.navdiv {
-    height: 15vh;
+.navbar-border {
+    border-bottom: solid 3px #81DDE4;
+    margin-bottom: 0px;
 }
 
 .logo-font {
@@ -31,6 +33,7 @@ body {
 .logo-container {
     display: flex;
     align-items: center;
+    height: 7vh;
 }
 
 .logo-font {
@@ -41,6 +44,7 @@ body {
     width: 200px;
     height: auto;
     margin-left: 10px;
+
 }
 
 .dropdown-item {
@@ -59,6 +63,11 @@ body {
     background: #8357F6;
     color: white;
     min-width: 260px;
+}
+
+.product-submit-btn {
+    background: #8357F6;
+    color: white;
 }
 
 .btn-black {
@@ -139,10 +148,15 @@ input[name='q']::placeholder {
     background-color: #8357F6;
     margin-top: auto;
     color: white;
+    width: 100%;
+}
+
+.category-footer ul li a {
+    color: white !important;
 }
 
 .stripe-img {
-    width: 300px;
+    width: 250px;
 }
 
 
