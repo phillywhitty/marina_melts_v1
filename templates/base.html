@@ -20,6 +20,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     {% endblock %}
 
     {% block extra_css %}{% endblock %}
@@ -176,6 +177,68 @@
 
     {% block content %}{% endblock %}
 
+    <section class="newsletter-grid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <div class="subscribe align-items-center">
+                        <h4 class="m-4">Sign Up For Our Newsletter </h4>
+                        <p>Receive the latest news, updates, and exclusive offers delivered straight to your inbox</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Mailchimp -->
+                    <div class="text-center">
+                        <div id="mc_embed_shell">
+                            <div id="mc_embed_signup">
+                                <form
+                                    action="https://herokuapp.us13.list-manage.com/subscribe/post?u=c9aeabf5a17530fcace097cef&amp;id=48cb5ae5f8&amp;f_id=000a33e5f0"
+                                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                    class="validate" target="_blank">
+                                    <div id="mc_embed_signup_scroll">
+                                        <div class="mc-field-group">
+                                            <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                                            <input type="email" name="EMAIL" class="required email form-control"
+                                                id="mce-EMAIL" required="" value="">
+                                            <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+                                        </div>
+                                        <div id="mce-responses" class="clear foot">
+                                            <div class="response" id="mce-error-response" style="display: none;"></div>
+                                            <div class="response" id="mce-success-response" style="display: none;">
+                                            </div>
+                                        </div>
+                                        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                                            <input type="text" name="b_c9aeabf5a17530fcace097cef_48cb5ae5f8"
+                                                tabindex="-1" value="">
+                                        </div>
+                                        <div class="optionalParent">
+                                            <div class="clear-foot">
+                                                <input type="submit" name="subscribe" id="mc-embedded-subscribe"
+                                                    class="button btn btn-primary" value="Subscribe">
+                                                <p style="margin: 0px auto;"><a href="http://eepurl.com/iI3yzE"
+                                                        title="Mailchimp - email marketing made easy and fun"><span
+                                                            style="display: inline-block; background-color: transparent; border-radius: 4px;"><img
+                                                                class="refferal_badge"
+                                                                src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
+                                                                alt="Intuit Mailchimp"
+                                                                style="height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- End Mailchimp -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
     <!-- Footer -->
     <section>
         <footer class="text-center text-lg-start" id="footer">
@@ -185,7 +248,7 @@
                 </div>
                 <!-- Social Links -->
                 <div id="social-links">
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                    <a href="https://www.facebook.com/profile.php?id=61556090069886" target="_blank" rel="noopener"
                         class="mr-4 text-reset text-white" aria-label="Link to Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
@@ -256,7 +319,27 @@
     </script>
     {% endblock %}
 
+    <!-- Mailchimp JavaScript -->
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            window.fnames = new Array();
+            window.ftypes = new Array();
+            fnames[0] = 'EMAIL';
             ftypes[0] = 'email';
+            fnames[1] = 'FNAME';
+            ftypes[1] = 'text';
+            fnames[2] = 'LNAME';
+            ftypes[2] = 'text';
+            fnames[3] = 'ADDRESS';
+            ftypes[3] = 'address';
+            fnames[4] = 'PHONE';
+            ftypes[4] = 'phone';
+            fnames[5] = 'BIRTHDAY';
+            ftypes[5] = 'birthday';
+        }(jQuery));
+        var $mcj = jQuery.noConflict(true);
+    </script>
 
 </body>
 
