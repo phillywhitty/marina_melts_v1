@@ -286,58 +286,28 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
   <img src="media/readme_product_manage.png" alt="Product Management">
 </div>
 
-#### Interactive Map
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92340153-91907180-f0b9-11ea-857e-3a5edcc8f840.png" alt="Gallery Map">
-</div>
+---
 
-- Uses the[Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial) to load an interactive map.
-- All features utilise javascript.
-- The [Google Maps Styling Wizard](https://mapstyle.withgoogle.com/) has been used to keep the map consistent with the site pallette.
-- The map zoom level is set differently depending on the device screen size.
-- Map markers are automatically generated and pull info from the [REST Countries API](https://restcountries.eu/).
-- Adding a country name to the `countryName` variable in `map.js` will allow a marker to be created with an info window that has the country statistics already filled.
-- `map.js` will automatically format the country info for the info window to be easily readable.
-- The info window has been styled to be consistent with the other elements of the site.
-- Content in the info window will automatically delete and refresh for each marker.
-- The country information is used to swap the picture URLs in the gallery.
-- Markers are animated to drop onto the map together.
-- The selected marker has been set to animate on click and stop any other animated markers. A second click will stop the animation.
-- After being clicked the page will briefly show the info window opening before smoothly scrolling down to the gallery automatically to carry the user to the images.
-- After a short scroll down a little arrow will appear in the bottom right which can be used to scroll to the top of the page again.
-- If the [REST Countries API](https://restcountries.eu/) is unreachable for any reason, the `markerArray.js` file is used to produce the markers.
-- In the backup function, the info window is not generated as that required the API.
+## Models
 
-#### Iframe Gallery
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92342235-812fc500-f0c0-11ea-8867-806e010a7638.png" alt="Iframe Gallery">
-</div>
+User information is stored within a relational database. The primary framework has been meticulously crafted to accommodate a variety of functionalities including product management, order placement, feedback submission, saving card details, and the ability to showcase hamper items :
 
-- A fully responsive, javascript-backed iframe gallery.
-- Displays three columns no matter the device size, so all photos are nicely displayed.
-- Used as an iframe so the layout can be modified separately from the gallery data.
-- Starts by displaying default images and an invitation to use the map.
-- Once a map marker is clicked, the images will swap out URLs, and the countries images will show.
-- Functions listen for a change to reset the image blur function.
-- Information for a blurb is stored on the gallery page and injected into the loaded iframe on click.
-- The swap is animated with jQuery to make it less sudden.
-- Clicking on an image will insert the image source path into a modal before it pops up to display the image in full quality.
-- The gallery's height can vary by photos and device, so there is a function to adjust the height.
-- The function fires on page load one, and then each time a marker is clicked, after every image has loaded completely, otherwise the height set may be incorrect.
-- The images in the gallery space vertically automatically based on the gallery height.
+- **CustomUser**: each row is a user that has signed up on the website
+- **Product**: each row is a product in the shop
+- **Product Category**: each row is a category that a product could belong to
+- **Product Season**: each row is a season that a product could belong to
+- **Order**: each row is an order that has successfully been checked out
+- **OrderItem**: each row is a product that belongs to a specific order
+- **Comment** each row is a comment that a user has submitted for a purchased product
+- **Rating** each row is a rating that a user has submitted for a purchased product
 
-### Contact Page
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/44118951/92344558-159d2600-f0c7-11ea-9e1d-836b5bc2586a.png" alt="Iframe Gallery">
-</div>
+<table style='width:90%; content-align:center'>
+    <tr>
+       <td> <img src="media/graphviz.png"; alt="ER diagram of the model" >  </td>
+    </tr>
+</table>
 
-- A simple page highlighting the author with a contact form that utilises [EmailJS](https://www.emailjs.com/) to send the emails.
-- The form has validation and is fully responsive.
-- Once the send button is pressed, a modal will open notifying the user that the message is sending.
-- The modal has fields that are modified by the `sendMail.js` script.
-- A success or an error message will be displayed depending on the result.
-- The form fields will be cleared only on a successful response.
-- A response message is sent to every email received, set up in EmailJS as a template.
+---
 
 ## Additional Features
 ### Image Loading Blur
