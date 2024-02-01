@@ -301,11 +301,10 @@ User information is stored within a relational database. The primary framework h
 - **Comment** each row is a comment that a user has submitted for a purchased product
 - **Rating** each row is a rating that a user has submitted for a purchased product
 
-<table style='width:90%; content-align:center'>
-    <tr>
-       <td> <img src="media/graphviz.png"; alt="ER diagram of the model" >  </td>
-    </tr>
-</table>
+<div align="center">
+  <img src="media/graphviz.png" alt="Medium Footer">
+</div>
+
 
 ---
 
