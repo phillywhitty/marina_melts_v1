@@ -292,14 +292,13 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 
 User information is stored within a relational database. The primary framework has been meticulously crafted to accommodate a variety of functionalities including product management, order placement, feedback submission, saving card details, and the ability to showcase hamper items :
 
-- **CustomUser**: each row is a user that has signed up on the website
-- **Product**: each row is a product in the shop
-- **Product Category**: each row is a category that a product could belong to
-- **Product Season**: each row is a season that a product could belong to
-- **Order**: each row is an order that has successfully been checked out
-- **OrderItem**: each row is a product that belongs to a specific order
-- **Comment** each row is a comment that a user has submitted for a purchased product
-- **Rating** each row is a rating that a user has submitted for a purchased product
+- UserLogInEntry: Each row represents an entry recording the login activity of users on the website.
+- Permission: Each row denotes a specific permission granted to users, dictating their access level within the system.
+- Product Category: Each row categorizes products, providing organization and navigation for users browsing the shop.
+- Product Wishlist: Each row represents a product that a user has added to their wishlist for future consideration or purchase.- User Wallet: Each row stores information about the wallet or virtual currency balance associated with a user's account.
+- Product Review: Each row captures a user's review or feedback on a purchased product, aiding other users in their decision-making process.
+- Email Address: Each row stores the email addresses associated with user accounts for communication and identification purposes.Place Order: Each row signifies an order that has been initiated by a user, awaiting confirmation and fulfillment.
+- Checkout: Each row records the successful completion of an order transaction, indicating that payment has been processed and products are ready for shipment.
 
 <div align="center">
   <img src="media/graphviz.png" alt="Medium Footer">
