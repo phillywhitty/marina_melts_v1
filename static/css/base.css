@@ -3,7 +3,7 @@
 }
 
 body {
-    background: url('https://wexford-treasures.s3.eu-west-1.amazonaws.com/media/media/Wex-Tres-Bg-Img(2)+.png') no-repeat center center fixed;
+    background: url('/media/wex-tres-bg-img-resized.png') no-repeat center center fixed;
     background-size: cover;
     background-position-y: 100px;
     height: calc(100vh - 164px);
