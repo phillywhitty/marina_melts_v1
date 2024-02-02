@@ -60,24 +60,24 @@ body {
 }
 
 .shop-now-button {
-    background: #8357F6;
+    background: #9D4ED9;
     color: white;
     min-width: 260px;
 }
 
 .product-submit-btn {
-    background: #8357F6;
+    background: #9D4ED9;
     color: white;
 }
 
 .btn-black {
-    background: #8357F6;
+    background: #9D4ED9;
     color: white;
 }
 
 .btn-outline-black {
     background: white;
-    color: #8357F6 !important;
+    color: #9D4ED9 !important;
     /* use important to override link colors for <a> elements */
     border: 1px solid black;
 }
@@ -85,7 +85,7 @@ body {
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: #8357F6;
+    background: #9D4ED9;
     color: white !important;
 }
 
@@ -95,20 +95,20 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #8357F6;
+    background: #9D4ED9;
     color: white;
 }
 
 .text-black {
-    color: #8357F6 !important;
+    color: #9D4ED9 !important;
 }
 
 .border-black {
-    border: 1px solid #8357F6 !important;
+    border: 1px solid #9D4ED9 !important;
 }
 
 .bg-black {
-    background: #8357F6 !important;
+    background: #9D4ED9 !important;
 }
 
 .overlay {
@@ -122,7 +122,7 @@ body {
 }
 
 a.category-badge>span.badge:hover {
-    background: #8357F6 !important;
+    background: #9D4ED9 !important;
     color: #fff !important;
 }
 
@@ -149,8 +149,8 @@ input[name='q']::placeholder {
     background-color: white;
 }
 
-.footer-hamper-img {
-
+.footer-container {
+    background-color: #D9574E;
 }
 
 /* ------------------------------- Mailchimp */
@@ -195,7 +195,7 @@ input[name='q']::placeholder {
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 10px solid #8357F6;
+    border-bottom: 10px solid #9D4ED9;
     position: absolute;
     top: -10px;
     right: 36px;
@@ -396,8 +396,4 @@ input[name='q']::placeholder {
 .increment-qty,
 .decrement-qty {
     padding: .25rem .5rem !important;
-}
-
-footer {
-    background-color: white;
 }
