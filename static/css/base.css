@@ -3,7 +3,7 @@
 }
 
 body {
-    background: url('/media/wex-tres-bg-img-resized.png') no-repeat center center fixed;
+    background: url('https://wexford-treasures.s3.eu-west-1.amazonaws.com/media/media/Wex-Tres-Bg-Img(2)+.png') no-repeat center center fixed;
     background-size: cover;
     background-position-y: 100px;
     height: calc(100vh - 164px);
@@ -149,26 +149,11 @@ input[name='q']::placeholder {
     background-color: white;
 }
 
+.footer-hamper-img {
 
-#footer {
-    background-color: #8357F6;
-    margin-top: auto;
-    color: white;
-    width: 100%;
-}
-
-.category-footer ul li a {
-    color: white !important;
-}
-
-.stripe-img {
-    min-width: 450px;
 }
 
 /* ------------------------------- Mailchimp */
-
-
-
 
 
 #mc_embed_signup {
