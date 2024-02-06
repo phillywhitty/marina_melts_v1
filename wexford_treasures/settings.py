@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+from pathlib import Path
 import os
 import dj_database_url
+
 
 if os.path.exists("env.py"):
   import env 
@@ -32,7 +33,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # DEBUG = 'DEVELOPMENT' in os.environ
 DEBUG = True
 
-ALLOWED_HOSTS = ['wexford-treasures-afe33013c7ab.herokuapp.com', '8000-phillywhitt-wexfordtrea-4fuituqzqr9.ws-eu107.gitpod.io']
+
+ALLOWED_HOSTS = [
+    '8000-phillywhitt-wexfordtrea-4fuituqzqr9.ws-eu108.gitpod.io',
+    "wexford-treasures-afe33013c7ab.herokuapp.com",
+] 
 
 
 # Application definition
