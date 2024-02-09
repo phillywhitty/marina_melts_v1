@@ -172,7 +172,7 @@ User Stories for Wexford Treasures:
 
 ## Visual Design
 ### Wireframes
-Wireframes: ""
+Wireframes: (https://github.com/phillywhitty/wexford_treasures/tree/main/Wireframes)
 
 ### Fonts
 <div align="center">
