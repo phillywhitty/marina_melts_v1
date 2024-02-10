@@ -12,13 +12,18 @@ class UserProfile(models.Model):
     delivery information and order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
-    default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
-    default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    default_phone_number = models.CharField(max_length=20, null=True,
+                                            blank=True)
+    default_street_address1 = models.CharField(max_length=80, null=True,
+                                               blank=True)
+    default_street_address2 = models.CharField(max_length=80, null=True,
+                                               blank=True)
+    default_town_or_city = models.CharField(max_length=40, null=True,
+                                            blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
-    default_country = CountryField(blank_label='Country', null=True, blank=True)
+    default_country = CountryField(blank_label='Country', null=True,
+                                   blank=True)
 
     def __str__(self):
         return self.user.username
@@ -35,7 +40,6 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     instance.userprofile.save()
 
 
-
 class MyWallet(models.Model):
     """
     A user profile model for maintaining default
@@ -45,7 +49,6 @@ class MyWallet(models.Model):
     card_number = models.CharField(max_length=16, unique=True, blank=True)
     expire_number = models.DateField(blank=True)
     cvv_number = models.IntegerField(unique=True, blank=True)
-   
 
     def __str__(self):
         return self.user.username
@@ -53,9 +56,8 @@ class MyWallet(models.Model):
 
 class WishlistItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)  
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     added_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user.username
-    

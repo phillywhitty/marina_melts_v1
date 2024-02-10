@@ -49,24 +49,22 @@ Go back to [README.md](/README.md)
 
 |File|App|Image|Result|Comment|
 | --- |----| --- | --- |----|
-| urls | Admin |![python](./assets/readme-images/testing/python/admin-url.PNG) | <mark>PASS<mark> ||
-| views | Admin |![python](./assets/readme-images/testing/python/admin-views.PNG) | <mark>PASS<mark> ||
-| urls | book_heaven |![python](./assets/readme-images/testing/python/book_heaven_urls.PNG) | <mark>PASS<mark> ||
-| views | book_heaven |![python](./assets/readme-images/testing/python/book_heaven_views.PNG) | <mark>PASS<mark> ||
-| bag_tools | Cart |![python](./assets/readme-images/testing/python/cart-bag-tools.PNG) | <mark>PASS<mark> ||
-| context | Cart |![python](./assets/readme-images/testing/python/cart-context.PNG) | <mark>PASS<mark> ||
-| test | Cart |![python](./assets/readme-images/testing/python/cart-test.PNG) | <mark>PASS<mark> ||
-| urls | Cart |![python](./assets/readme-images/testing/python/cart-urls.PNG) | <mark>PASS<mark> ||
-| views | Cart |![python](./assets/readme-images/testing/python/cart-views.PNG) | <mark>PASS<mark> ||
-| admin | Checkout |![python](./assets/readme-images/testing/python/checkout-admin.PNG) | <mark>PASS<mark> ||
-| apps | Checkout |![python](./assets/readme-images/testing/python/checkout-apps.PNG) | <mark>PASS<mark> ||
-| forms | Checkout |![python](./assets/readme-images/testing/python/checkout-forms.PNG) | <mark>PASS<mark> ||
-| models | Checkout |![python](./assets/readme-images/testing/python/checkout-models.PNG) | <mark>PASS<mark> ||
-| signals | Checkout |![python](./assets/readme-images/testing/python/checkout-signals.PNG) | <mark>PASS<mark> ||
-| urls | Checkout |![python](./assets/readme-images/testing/python/checkout-urls.PNG) | <mark>PASS<mark> ||
-| views | Checkout |![python](./assets/readme-images/testing/python/checkout-views.PNG) | <mark>PASS<mark> ||
-| webhook-handler | Checkout |![python](./assets/readme-images/testing/python/checkout-webhook-handler.PNG) | <mark>PASS<mark> ||
-| webhooks | Checkout |![python](./assets/readme-images/testing/python/checkout-webhook-handler.PNG) | <mark>PASS<mark> |Warning line too long, it is part of the webhook so it was left as is|
+| urls | wexford_treasures |![python](./assets/testing/python/wexford_treasures_main_urls_pep8.png) | <mark>PASS<mark> ||
+| admin | profiles |![python](./assets/testing/python/profiles_admin_pep8.png) | <mark>PASS<mark> ||
+| apps | profiles |![python](./assets/testing/python/profile_apps_pep8.png) | <mark>PASS<mark> ||
+| forms | profiles |![python](./assets/testing/python/profiles_forms_pep8.png) | <mark>PASS<mark> ||
+| models | profiles |![python](./assets/testing/python/profiles_models_pep8.png) | <mark>PASS<mark> ||
+| urls | profiles |![python](./assets/testing/python/profiles_urls_pep8.png) | <mark>PASS<mark> ||
+| views | profiles |![python](./assets/testing/python/profiles_views_pep8.png) | <mark>PASS<mark> ||
+| admin | products |![python](./assets/testing/python/products_admin_pep8.png) | <mark>PASS<mark> ||
+| apps | products |![python](./assets/testing/python/products_apps_pep8.png) | <mark>PASS<mark> ||
+| forms | products |![python](./assets/readme-images/testing/python/checkout-forms.PNG) | <mark>PASS<mark> ||
+| models | products |![python](./assets/readme-images/testing/python/checkout-models.PNG) | <mark>PASS<mark> ||
+| signals | products |![python](./assets/readme-images/testing/python/checkout-signals.PNG) | <mark>PASS<mark> ||
+| urls | products |![python](./assets/readme-images/testing/python/checkout-urls.PNG) | <mark>PASS<mark> ||
+| views | products |![python](./assets/readme-images/testing/python/checkout-views.PNG) | <mark>PASS<mark> ||
+| webhook-handler | products |![python](./assets/readme-images/testing/python/checkout-webhook-handler.PNG) | <mark>PASS<mark> ||
+| webhooks | products |![python](./assets/readme-images/testing/python/checkout-webhook-handler.PNG) | <mark>PASS<mark> |Warning line too long, it is part of the webhook so it was left as is|
 | admin | discount_codes |![python](./assets/readme-images/testing/python/discount-code-admin.PNG) | <mark>PASS<mark> ||
 | forms | discount_codes |![python](./assets/readme-images/testing/python/discount-code-forms.PNG) | <mark>PASS<mark> ||
 | models | discount_codes |![python](./assets/readme-images/testing/python/discount-code-models.PNG) | <mark>PASS<mark> ||

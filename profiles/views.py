@@ -18,7 +18,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(request, 'Update failed' +
+                                    'Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -49,18 +50,18 @@ def order_history(request, order_number):
 
     return render(request, template, context)
 
+
 def WalletView(request):
-    # Assuming you have a user object (replace with your actual user retrieval logic)
     user = request.user
-    # Retrieve or create the associated wallet for the user
     wallet, created = MyWallet.objects.get_or_create(user=user)
     if request.method == 'POST':
         # If the form is submitted, process the form data
         form = MyWalletForm(request.POST, instance=wallet)
         if form.is_valid():
             form.save()
-            return redirect('success_page')  # Redirect to a success page after saving the form
+            return redirect('success_page')
+            # Redirect to a success page after saving the form
     else:
-        # If the form is not submitted, initialize the form with existing data
+        # If the form is not submitted, initializes the form with existing data
         form = MyWalletForm(instance=wallet)
     return render(request, 'profiles/wallet.html', {'form': form})
