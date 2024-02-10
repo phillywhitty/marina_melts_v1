@@ -58,13 +58,12 @@ Go back to [README.md](/README.md)
 | views | profiles |![python](./assets/testing/python/profiles_views_pep8.png) | <mark>PASS<mark> ||
 | admin | products |![python](./assets/testing/python/products_admin_pep8.png) | <mark>PASS<mark> ||
 | apps | products |![python](./assets/testing/python/products_apps_pep8.png) | <mark>PASS<mark> ||
-| forms | products |![python](./assets/readme-images/testing/python/checkout-forms.PNG) | <mark>PASS<mark> ||
-| models | products |![python](./assets/readme-images/testing/python/checkout-models.PNG) | <mark>PASS<mark> ||
-| signals | products |![python](./assets/readme-images/testing/python/checkout-signals.PNG) | <mark>PASS<mark> ||
-| urls | products |![python](./assets/readme-images/testing/python/checkout-urls.PNG) | <mark>PASS<mark> ||
-| views | products |![python](./assets/readme-images/testing/python/checkout-views.PNG) | <mark>PASS<mark> ||
-| webhook-handler | products |![python](./assets/readme-images/testing/python/checkout-webhook-handler.PNG) | <mark>PASS<mark> ||
-| webhooks | products |![python](./assets/readme-images/testing/python/checkout-webhook-handler.PNG) | <mark>PASS<mark> |Warning line too long, it is part of the webhook so it was left as is|
+| forms | products |![python](./assets/testing/python/products_forms_pep8.png) | <mark>PASS<mark> ||
+| models | products |![python](./assets/testing/python/products_models_pep8.png) | <mark>PASS<mark> ||
+| urls | products |![python](./assets/testing/python/products_urls_pep8.png) | <mark>PASS<mark> ||
+| views | products |![python](./assets/testing/python/products_views_pep8.png) | <mark>PASS<mark> ||
+| widgets | products |![python](/assets/testing/python/products_widgets_pep8.png) | <mark>PASS<mark> ||
+
 | admin | discount_codes |![python](./assets/readme-images/testing/python/discount-code-admin.PNG) | <mark>PASS<mark> ||
 | forms | discount_codes |![python](./assets/readme-images/testing/python/discount-code-forms.PNG) | <mark>PASS<mark> ||
 | models | discount_codes |![python](./assets/readme-images/testing/python/discount-code-models.PNG) | <mark>PASS<mark> ||
@@ -79,6 +78,7 @@ Go back to [README.md](/README.md)
 | utils | products |![python](./assets/readme-images/testing/python/products-utils.PNG )| <mark>PASS<mark> ||
 | views | products |![python](./assets/readme-images/testing/python/products-views.PNG )| <mark>PASS<mark> ||
 | widgets | products |![python](./assets/readme-images/testing/python/products-widgets.PNG )| <mark>PASS<mark> ||
+
 | admin | profiles |![python](./assets/readme-images/testing/python/profiles-admin.PNG )| <mark>PASS<mark> ||
 | forms | profiles |![python](./assets/readme-images/testing/python/profiles-forms.PNG )| <mark>PASS<mark> ||
 | models | profiles |![python](./assets/readme-images/testing/python/profiles-models.PNG )| <mark>PASS<mark> ||

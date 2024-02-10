@@ -9,7 +9,8 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = '__all__'
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -21,11 +22,12 @@ class ProductForm(forms.ModelForm):
             field.widget.attrs['class'] = 'border-black rounded-0'
 
 
-
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['comment', 'rate']  
+        fields = ['comment', 'rate']
+        # Customized widget for comment field
         widgets = {
-            'comment': forms.Textarea(attrs={'rows': 4}),  # Customized widget for comment field
+            'comment': forms.Textarea(attrs={'rows': 4}),
         }
+        
