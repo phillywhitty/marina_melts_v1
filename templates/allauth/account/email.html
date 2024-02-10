@@ -21,7 +21,7 @@
 
         <input id="email_radio_{{forloop.counter}}" type="radio" name="email"
           {% if emailaddress.primary or user.emailaddress_set.count == 1 %}checked="checked" {%endif %}
-          value="{{emailaddress.email}}" />
+          value="{{emailaddress.email}}">
 
         {{ emailaddress.email }}
         {% if emailaddress.verified %}
@@ -63,7 +63,7 @@
 
 
 {% block extra_body %}
-<script type="text/javascript">
+<script>
   (function () {
     var message = "{% trans 'Do you really want to remove the selected e-mail address?' %}";
     var actions = document.getElementsByName('action_remove');
