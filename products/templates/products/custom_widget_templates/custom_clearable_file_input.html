@@ -19,9 +19,8 @@
 <!-- File Input -->
 <span class="btn btn-black rounded-0 btn-file">
     Select Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"
-        {% include "django/forms/widgets/attrs.html" %}>
+    {% include "django/forms/widgets/attrs.html" %}>
 </span>
 <!-- Filename Indicator -->
-<strong>
-    <p class="text-danger" id="filename"></p>
-</strong>
+<strong><span class="text-danger">Filename:</span></strong>
+<p id="filename"></p>

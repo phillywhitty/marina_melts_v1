@@ -65,7 +65,7 @@
                             <h2 class="logo-font text-black ml-5">
                                 <strong>Wexford</strong><br>
                                 Treasures</h2>
-                            <img src="{{MEDIA_URL}}wex_logo_100pxx100px.png" class="logo-image">
+                            <img src="{{MEDIA_URL}}wex_logo_100pxx100px.png" class="logo-image" alt="logo">
                         </div>
                     </a>
                 </div>
@@ -177,7 +177,7 @@
 
     {% block content %}{% endblock %}
 
-    <section class="newsletter-grid">
+    <div class="newsletter-grid">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center">
@@ -234,7 +234,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
 
 
@@ -253,7 +253,7 @@
 
                             <div class="footer-hamper-img rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto"
                                 style="width: 150px; height: 150px;">
-                                <img src="/media/footer_hamper_img.png" height="70" alt="" loading="lazy" />
+                                <img src="/media/footer_hamper_img.png" height="70" alt="footer-logo" loading="lazy">
                             </div>
 
                             <p class="text-center">*Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -383,15 +383,15 @@
 
     {% block postloadjs %}
     <!-- Post-load JavaScript -->
-    <script type=" text/javascript">
+    <script>
         $('.toast').toast('show');
     </script>
     {% endblock %}
 
     <!-- Mailchimp JavaScript -->
-    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js">
+    <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js">
     </script>
-    <script type="text/javascript">
+    <script>
         (function ($) {
             window.fnames = new Array();
             window.ftypes = new Array();
