@@ -1,5 +1,5 @@
 """
-ASGI config for marina_melts project.
+ASGI config for wexford_treasures project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
