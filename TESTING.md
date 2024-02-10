@@ -23,10 +23,10 @@ Go back to [README.md](/README.md)
 | Products Detail|![products_detail](./assets/testing/html/products_detail_html_chekcer.png) | <mark>PASS<mark> |
 | Log In |![log_in](./assets/testing/html/log_in_html_checker.png) | <mark>PASS<mark> |
 | My Profile |![my_profile](./assets/testing/html/my_profile_html_checker.png) | <mark>PASS<mark> |
-| product |![product](./assets/readme-images/testing/html/single-products.PNG) | <mark>PASS<mark> |
-| author |![author](./assets/readme-images/testing/html/single-author.PNG) | <mark>PASS<mark> |
-| privacy policy |![privacy policy](./assets/readme-images/testing/html/privacy-policy.PNG) | <mark>PASS<mark> |
-| edit review |![edit review](./assets/readme-images/testing/html/review-edit.PNG) | <mark>PASS<mark> |
+| My Wallet |![wallet](./assets/testing/html/my_wallet_html_checker.png) | <mark>PASS<mark> |
+| Checkout |![checkout](./assets/testing/html/checkout_html_checker.png) | <mark>PASS<mark> |
+| Checkout Success |![checkout_success](./assets/testing/html/checkout_success_html_checker.png) | <mark>PASS<mark> |
+| Log Out |![log_out](./assets/testing/html/log_out_html_checker.png) | <mark>PASS<mark> |
 | delete review |![delete review](./assets/readme-images/testing/html/review-delete.PNG) | <mark>PASS<mark> |
 | my profile |![my profile](./assets/readme-images/testing/html/my-profile.PNG) | <mark>PASS<mark> |
 | my orders |![my orders](./assets/readme-images/testing/html/my-orders.PNG) | <mark>PASS<mark> |
