@@ -382,35 +382,9 @@ User information is stored within a relational database. The primary framework h
 
 ----
 
-# Testing
-## Methods
-### Validation
-- HTML has been validated with [W3C HTML5 Validator](https://validator.w3.org/).
-- CSS has been validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and auto-prefixed with [CSS Autoprefixer](https://autoprefixer.github.io/).
-- Links checked with [W3C Link Checker](https://validator.w3.org/checklink).
-- Each javascript file was tested on the site for errors and functionality using the console and with [JSHint](https://jshint.com/).
+## Testing
+Testing documentation can be found [here.](TESTING.md)
 
-### General Testing
-- Each feature was developed and tested in its own branch before being merged with master. Branches were subsequently deleted.
-- Each time a feature was added, all the functions were tested to see if there was an impact.
-- The site was sent to friends for feedback and testing.
-- All forms have validation and will not submit without the proper information.
-- .gitignore file has been included to prevent system file commits.
-- The image loading blur has been thoroughly tested and gone through numerous iterations to optimise the smoothness of the transition on different devices and internet speeds.
-- Backup Map functions have been tested in a local deployment.
-- Email error functions have been tested offline as well.
-- External links open in a new tab.
-
-### Mobile Testing
-- I tested the site personally on my Android device, going through the entire process, checking buttons, functions, checking out, etc. I was personally unable to test on iOS.
-- The site was sent to friends and relatives for them to follow the same process. They have tested on their devices, including iOS.
-- Chrome was utilised to inspect the site in mobile format, going through the pages and functions.
-
-### Desktop Testing
-- The site was developed on a Chromebook and, as such, the majority of testing occurred on Chrome.
-- The site was tested by friends and relatives on numerous desktop devices.
-- The site was marginally tested on other browsers, such as Firefox and Edge.
-- Internet Explorer was not tested and the site was not developed with it in mind as support for the browser is gradually being dropped.
 
 ## Bugs
 ### Known Bugs
