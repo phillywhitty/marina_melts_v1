@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Sitemap: https://wexford-treasures-afe33013c7ab.herokuapp.com/sitemap.xml
