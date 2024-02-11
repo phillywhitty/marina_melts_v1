@@ -63,10 +63,9 @@ Go back to [README.md](/README.md)
 | urls | products |![python](./assets/testing/python/products_urls_pep8.png) | <mark>PASS<mark> ||
 | views | products |![python](./assets/testing/python/products_views_pep8.png) | <mark>PASS<mark> ||
 | widgets | products |![python](/assets/testing/python/products_widgets_pep8.png) | <mark>PASS<mark> ||
-
-| admin | discount_codes |![python](./assets/readme-images/testing/python/discount-code-admin.PNG) | <mark>PASS<mark> ||
-| forms | discount_codes |![python](./assets/readme-images/testing/python/discount-code-forms.PNG) | <mark>PASS<mark> ||
-| models | discount_codes |![python](./assets/readme-images/testing/python/discount-code-models.PNG) | <mark>PASS<mark> ||
+| apps | home |![python](./assets/testing/python/home_apps-pep8.png) | <mark>PASS<mark> ||
+| urls | home |![python](./assets/testing/python/home_urls_pep8.png) | <mark>PASS<mark> ||
+| views | home |![python](./assets/testing/python/home_views_pep8.png) | <mark>PASS<mark> ||
 | test | home |![python](./assets/readme-images/testing/python/home-tests.PNG) | <mark>PASS<mark> ||
 | urls | home |![python](./assets/readme-images/testing/python/home-urls.PNG) | <mark>PASS<mark> ||
 | views | home |![python](./assets/readme-images/testing/python/home-views.PNG) | <mark>PASS<mark> ||
