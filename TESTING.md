@@ -106,14 +106,14 @@ Go back to [README.md](/README.md)
 
 |User Story|Screenshot|Result|
 | --- | --- | --- |
-| As a User I can navigate through the website so that I can access different sections efficiently |![feature](./assets/readme-images/features/feature-desktop.PNG)| <mark>PASS<mark> |
-| As a user I can visit the home page so that I can identify the purpose of the website |![feature](./assets/readme-images/home-page.PNG)| <mark>PASS<mark> |
-| As a user I want to be able to view a list of all available products in the bookshop so that I can browse and choose books to purchase |![feature](./assets/readme-images/all-products.PNG)| <mark>PASS<mark> |
-| As a user I want to be able to view detailed information about a single product so that I can make an informed decision before purchasing |![feature](./assets/readme-images/single-product.PNG)| <mark>PASS<mark> |
-|As a user I want to be able to refine the list of available products by selecting a specific category so that I can easily find books that match my interests |![feature](./assets/readme-images/refine-products.PNG)| <mark>PASS<mark> |
-|As a User I want to be able to view detailed information about a product's author, including their name, a short biography, and a list of books available for sale on the website so that I can learn more about the author and explore their other works. |![feature](./assets/readme-images/author.PNG)| <mark>PASS<mark> |
-|As a User I want to be able to search for products in the bookshop by entering keywords so that I can quickly find specific books or topics of interest |![feature](./assets/readme-images/search.PNG)| <mark>PASS<mark> |
-|As a User I want to be able to browse through a large list of products in the bookshop so that I can view all books in an organised way |![feature](./assets/readme-images/pagination.PNG)| <mark>PASS<mark> |
+| As a shopper I can view a list of products so I can select some to purchase |![feature](./assets/testing/userstories/products_user_stories.png)| <mark>PASS<mark> |
+| As a shopper I will see display details for a specific product so that I can identify the price, description, product rating, product image and available sizes |![feature](./assets/testing/userstories/products_detail_userstories.png)| <mark>PASS<mark> |
+| As a shopper, I aim to swiftly spot discounts, clearance items, and special offers, enabling me to capitalize on exclusive savings for the products I intend to buy. |![feature](./assets/testing/userstories/deals_userstories.png)| <mark>PASS<mark> |
+| As a shopper, I can effortlessly check the overall cost of my purchases to assist in preventing excessive spending |![feature](./assets/testing/userstories/bag_toast_userstories.png)| <mark>PASS<mark> |
+| As a site user, I can conveniently sign up for an account and possess a personal profile, enabling me to view my account details |![feature](./assets/testing/userstories/my_profile_userstories.png)| <mark>PASS<mark> |
+|As a site user, I can effortlessly log in or log out and gain access to my personal account information |![feature](./assets/testing/userstories/log_in_log_out_userstories.png)| <mark>PASS<mark> |
+|As a site user, I can conveniently reset my password in case of forgetfulness, ensuring the recovery of access to my account |![feature](/assets/testing/userstories/password_reset_userstories.png)| <mark>PASS<mark> |
+| As a site user, I aim to possess a customized user profile for viewing my individual order history, order confirmations, and the option to save my payment information![feature](./assets/readme-images/pagination.PNG)| <mark>PASS<mark> |
 |As a an authenticated user I want to be able to add a review for a book product so that I can share my feedback and experiences with other potential buyers |![feature](./assets/readme-images/reviews.PNG)| <mark>PASS<mark> |
 |As a user I want to be able to register an account so that I can have access to all functionality of BookHeaven. |![feature](./assets/readme-images/sign-up.PNG)| <mark>PASS<mark> |
 |As a user, I want to be able to log in to my account so that I can access my personalized features and make purchases on BookHeaven. |![feature](./assets/readme-images/sign-in.PNG)| <mark>PASS<mark> |
