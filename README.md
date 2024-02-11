@@ -337,14 +337,13 @@ User information is stored within a relational database. The primary framework h
 
 # Technologies Used
 ## Languages
-- [HTML](w3.org/standards/webdesign/htmlcss)
-    * Page markup.
-- [CSS](w3.org/standards/webdesign/htmlcss)
-    * Styling.
-- [SASS](https://sass-lang.com/)
-    * Used to customise Bootstrap and CSS styles.
-- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-    * Running functions for interactive components, AJAX, etc.
+- HTML
+- CSS
+- JavaScript
+- jQuery
+- Bootstrap
+- Python
+- Django
 
 ## Frameworks
 - [Bootstrap4](https://getbootstrap.com/)
@@ -358,11 +357,6 @@ User information is stored within a relational database. The primary framework h
 - [Fontawesome](https://fontawesome.com/)
     * Used for icons
 
-## APIs
-- [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial)
-    * Map, markers and styles.
-- [REST Countries API](https://restcountries.eu/)
-    * Statistics for infowindow, marker information
 
 ## Platforms
 - [Github](https://github.com/)
@@ -375,8 +369,8 @@ User information is stored within a relational database. The primary framework h
     * To create wireframes.
 - [Favicon Generator](https://www.favicon-generator.org/)
     * Favicons
-- [Mockup Generator](https://techsini.com/multi-mockup/index.php)
-    * For device mockup images.
+- [Canva](https://www.canva.com/)
+    * Platform for images.
 - [Coolors](https://coolors.co/)
     * Creating color pallettes.
 
@@ -384,6 +378,11 @@ User information is stored within a relational database. The primary framework h
 
 ## Testing
 Testing documentation can be found [here.](TESTING.md)
+
+### SEO
+- Descriptive meta tags were added to the main template, including title, description and keywords.
+- A sitemap was generated using [xml-sitemaps](https://www.xml-sitemaps.com/) This was generated using the deployed website. The file is included in the root level of the project.
+- Robots.txt file was created at the root level of the project. This file tells the search engine crawlers which URLs they can access on the website.
 
 
 ## Bugs
