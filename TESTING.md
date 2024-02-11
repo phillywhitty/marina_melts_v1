@@ -69,23 +69,17 @@ Go back to [README.md](/README.md)
 | test | home |![python](./assets/readme-images/testing/python/home-tests.PNG) | <mark>PASS<mark> ||
 | urls | home |![python](./assets/readme-images/testing/python/home-urls.PNG) | <mark>PASS<mark> ||
 | views | home |![python](./assets/readme-images/testing/python/home-views.PNG) | <mark>PASS<mark> ||
-| admin | products |![python](./assets/readme-images/testing/python/products-admin.PNG )| <mark>PASS<mark> ||
-| forms | products |![python](./assets/readme-images/testing/python/products-forms.PNG )| <mark>PASS<mark> ||
-| models | products |![python](./assets/readme-images/testing/python/products-models.PNG )| <mark>PASS<mark> ||
-| test | products |![python](./assets/readme-images/testing/python/products-test.PNG )| <mark>PASS<mark> ||
-| url | products |![python](./assets/readme-images/testing/python/products-urls.PNG )| <mark>PASS<mark> ||
-| utils | products |![python](./assets/readme-images/testing/python/products-utils.PNG )| <mark>PASS<mark> ||
-| views | products |![python](./assets/readme-images/testing/python/products-views.PNG )| <mark>PASS<mark> ||
-| widgets | products |![python](./assets/readme-images/testing/python/products-widgets.PNG )| <mark>PASS<mark> ||
+| admin | checkout |![python](./assets/testing/python/checkout_admin_pep8.png )| <mark>PASS<mark> ||
+| apps | checkout |![python](./assets/testing/python/checkout_apps_pep8.png )| <mark>PASS<mark> ||
+| forms | checkout |![python](./assets/testing/python/checkout_forms_pep8.png )| <mark>PASS<mark> ||
+| models | checkout |![python](./assets/testing/python/checkout_models_pep8.png )| <mark>PASS<mark> ||
+| signals | checkout |![python](./assets/testing/python/checkout_signals_pep8.png )| <mark>PASS<mark> ||
+| urls | checkout |![python](./assets/testing/python/checkout_urls_pep8.png )| <mark>PASS<mark> ||
+| views | checkout |![python](./assets/testing/python/checkout_views_pep8.png)| <mark>PASS<mark> ||
+| webhook_handler | checkout |![python](./assets/testing/python/checkout_webhook_handler_pep8.png )| <mark>PASS<mark> ||
+| webhooks | checkout |![python](./assets/testing/python/checkout_webhook_pep8.png )| <mark>PASS<mark> | This was Stripes webhook and I didnt want to change anything|
+| apps | bag |![python](./assets/testing/python/bag_apps_pep8.png )| <mark>PASS<mark> ||
+| context | bag |![python](./assets/testing/python/bag_context_pep8.png )| <mark>PASS<mark> ||
+| urls | bag |![python](./assets/testing/python/bag_urls_pep8.png )| <mark>PASS<mark> ||
+| views | bag |![python](./assets/testing/python/bag_views_pep8.png )| <mark>PASS<mark> ||
 
-| admin | profiles |![python](./assets/readme-images/testing/python/profiles-admin.PNG )| <mark>PASS<mark> ||
-| forms | profiles |![python](./assets/readme-images/testing/python/profiles-forms.PNG )| <mark>PASS<mark> ||
-| models | profiles |![python](./assets/readme-images/testing/python/profiles-models.PNG )| <mark>PASS<mark> ||
-| tests | profiles |![python](./assets/readme-images/testing/python/profiles-tests.PNG )| <mark>PASS<mark> ||
-| url | profiles |![python](./assets/readme-images/testing/python/profiles-urls.PNG )| <mark>PASS<mark> ||
-| views | profiles |![python](./assets/readme-images/testing/python/profiles-views.PNG )| <mark>PASS<mark> ||
-| admin | reviews |![python](./assets/readme-images/testing/python/reviews-admin.PNG )| <mark>PASS<mark> ||
-| forms | reviews |![python](./assets/readme-images/testing/python/reviews-forms.PNG )| <mark>PASS<mark> ||
-| models | reviews |![python](./assets/readme-images/testing/python/reviews-models.PNG )| <mark>PASS<mark> ||
-| url | reviews |![python](./assets/readme-images/testing/python/profiles-urls.PNG )| <mark>PASS<mark> ||
-| views | reviews |![python](./assets/readme-images/testing/python/profiles-views.PNG )| <mark>PASS<mark> ||
