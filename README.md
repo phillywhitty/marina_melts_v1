@@ -472,4 +472,4 @@ All photographs, authors, license rights, copyright, etc. used in this project c
 All other media used is my own.
 
 ### Contact
-Please feel free to contact me at `sheridan.rp@gmail.com`
+Please feel free to contact me at `philipwhitty92@yahoo.ie`
