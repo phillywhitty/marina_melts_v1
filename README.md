@@ -237,12 +237,12 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 
 #### Footer
 <div align="center">
-  <img src="media/readme_footer.png" alt="Medium Footer">
-  <img src="media/readme_footer_sm_devices.png" alt="Small Footer">
+  <img src="./assets/testing/userstories/footer_readme.png" alt="Medium Footer">
+  <img src="./assets/testing/userstories/footer_mobile_readme.png" alt="Small Footer">
 </div>
 
-- Located at the bottom of every page, mainly highlighting address,email and social aspects with a stripe image to make a user feel secure payments will occur.
-- It changes shape for larger or smaller devices.
+- Located at the bottom of every page, it includes a hamper logo, social media links, three headings containing Make your own hampers with useful links, then the most popular category heading contains links to Wexford Treasures best, and finally it contains Contact Info as the last heading.
+- The headings all stack for responsiveness.
 - Social media logos brings users to Wexford Treasure on social media for the latest product launches, promotions, and behind-the-scenes glimpses
 
 
@@ -260,6 +260,18 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 -  At the heart of the page, the prominent heading stands proudly next to the wexford treasure hamper logo, inviting users to discover the essence of the brand. 
 - For users ready to embark on their shopping adventure, a centrally located "Shop Now" button beckons, ready to whisk them away to explore the exquisite range of products.
 
+
+### Sign Up Page
+<div align="center">
+  <img src="./assets/testing/userstories/sign_up_readme.png" alt="Sign Up">
+</div>
+
+### Sign In Page
+<div align="center">
+  <img src="./assets/testing/userstories/sign_in_readme.png" alt="Sign In">
+</div>
+
+
 #### Product Page
 #### Hampers Page
 #### Gifts Page
@@ -272,6 +284,10 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 - Each page showcases our diverse range of offerings in a consistent layout featuring four columns, ensuring an organized and visually appealing display.
 - Designed to be responsive, the layout seamlessly adjusts to suit all devices, from desktops to mobile phones, providing an optimal viewing experience for every user.
 
+### Product Detail Page
+<div align="center">
+  <img src="./assets/testing/userstories/product_detail_page_readme.png" alt="Product Detail">
+</div>
 
 ### Review
 <div align="center">
@@ -284,6 +300,21 @@ Icons sourced from the Font Awesome Icon library are implemented as classes with
 ### Product Management Page
 <div align="center">
   <img src="media/readme_product_manage.png" alt="Product Management">
+</div>
+
+### Shopping Bag Page
+<div align="center">
+  <img src="./assets/testing/userstories/shopping_bag_readme.png" alt="Shopping Bag">
+</div>
+
+### Checkout Page
+<div align="center">
+  <img src="/assets/testing/userstories/checkout_readme.png" alt="Checkout">
+</div>
+
+### Checkout Success
+<div align="center">
+  <img src="./assets/testing/userstories/checkout_success_readme.png" alt="Checkout Success">
 </div>
 
 ---
@@ -374,10 +405,23 @@ User information is stored within a relational database. The primary framework h
 ## Testing
 Testing documentation can be found [here.](TESTING.md)
 
+
+## Search Engine Optimization SEO and Marketing
+
 ### SEO
 - Descriptive meta tags were added to the main template, including title, description and keywords.
 - A sitemap was generated using [xml-sitemaps](https://www.xml-sitemaps.com/) This was generated using the deployed website. The file is included in the root level of the project.
 - Robots.txt file was created at the root level of the project. This file tells the search engine crawlers which URLs they can access on the website.
+
+
+### Marketing
+- Newsletter is included in all pages. This section enhances user interaction and boosts the e-commerce store's visibility through impactful email marketing strategies and a strong social media presence.
+
+- Facebook Page
+<div align="center">
+  <img src="./assets/testing/userstories/facebook_wex_treasures.png" alt="facebook-page">
+</div>
+
 
 
 ## Bugs
