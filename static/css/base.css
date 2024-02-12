@@ -146,13 +146,6 @@ input[name='q']::placeholder {
     background-color: #4ba0b5e3 !important;
 }
 
-/* ------------------------------- 404page */
-
-.error-page h2,
-.error-page p {
-    color: aquamarine !important;
-}
-
 
 /* ------------------------------- Mailchimp */
 
