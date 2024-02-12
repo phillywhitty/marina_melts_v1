@@ -346,18 +346,15 @@ User information is stored within a relational database. The primary framework h
 - Mailchimp is functional on every page through the newsletter form.
 
 
-## Feature Ideas
+## Future Ideas
 ### Basic
-- A selection of countries to click on that brings you directly to the gallery.
-- The ability to share photos directly to social media.
-- Purchasing on the site
-- More details about countries.
+- Another section above the newsletter such as testimonials.
+- An upgrade on the database, some styling added
+
 
 ### Content 
-- A wider range of countries and images. At the moment I didn't want to clutter the map.
-- The user selects a country and an API pull in relevant images of that location.
-- An API wherein the placename and the blurb are automatically generated.
-- Blog posts on the website for more flavour text.
+- A wider range of products and images.
+- Blog posts on the website for making your own hampers.
 
 ----
 
