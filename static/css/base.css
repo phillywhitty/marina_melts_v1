@@ -25,10 +25,6 @@ body {
     margin-bottom: 0px;
 }
 
-.logo-font {
-    text-transform: uppercase;
-}
-
 .logo-container {
     display: flex;
     align-items: center;
@@ -146,7 +142,7 @@ input[name='q']::placeholder {
 }
 
 .footer-container {
-    background-color: #4ED0D9 !important;
+    background-color: #4ba0b5e3 !important;
 }
 
 /* ------------------------------- Mailchimp */
@@ -343,6 +339,10 @@ input[name='q']::placeholder {
 
     .header-container {
         padding-top: 164px;
+    }
+
+    .wexford-treasure-text {
+        font-size: larger !important;
     }
 }
 

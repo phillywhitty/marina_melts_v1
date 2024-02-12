@@ -308,17 +308,12 @@ User information is stored within a relational database. The primary framework h
 ---
 
 ## Additional Features
-### Image Loading Blur
-- All images utilise a loading blur function to smooth out their loading as the high-quality images can slow things down.
-- The function places a low-quality thumbnail as the default image, covering it with a CSS blur filter.
-- Simultaneously, it loads the full quality image set as the background image. Once it detects it is loaded it adds a class.
-- The class makes the thumbnail transparent, using animation to smooth the transition.
-- Had to be carefully used to correctly open the image modal.
+
+
 
 ### Email
-- EmailJS is functional on every page through the newsletter form.
-- The newsletter form has all the same basic features, like the contact form; validation, the modal, success and error messages are all present.
-- Differentiates between the contact page form for messages and the newsletter form.
+- Mailchimp is functional on every page through the newsletter form.
+
 
 ## Feature Ideas
 ### Basic
