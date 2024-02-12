@@ -37,10 +37,15 @@ class UserProfileForm(forms.ModelForm):
 class MyWalletForm(forms.ModelForm):
     class Meta:
         model = MyWallet
-        fields = ['name', 'card_number', 'expire_number', 'cvv_number']
+        fields = ['user', 'product', 'expire_number', 'cvv_number']
     def clean_default_cvv_number(self):
         # Add any custom validation logic for the CVV number if needed
         cvv_number = self.cleaned_data.get('default_cvv_number')
         if cvv_number and (cvv_number < 100 or cvv_number > 999):
             raise forms.ValidationError("CVV number must be a 3-digit number.")
         return cvv_number
+
+class MyWishList(forms.ModelForm):
+    class Meta:
+        model = MyWishList
+        fields = ['user', 'product', 'quantity']

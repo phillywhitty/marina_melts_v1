@@ -75,3 +75,27 @@ def WalletView(request):
 
     return render(request, 'profiles/wallet.html', context)
 
+def WishItem(request):
+    user = request.user
+    wallet, created = WishItem.objects.get_or_create(user=user)
+
+    if request.method == 'POST':
+        form = MyWalletForm(request.POST, instance=wallet)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Wallet updated successfully')
+            return redirect('wallet')  # Redirect to avoid resubmitting POST data
+        else:
+            # Corrected the message concatenation to properly display the error message.
+            messages.error(request, 'Update failed. Please ensure the info is valid.')
+    else:
+        form = MyWalletForm(instance=wallet)
+
+
+    context = {
+        'form': form,
+        'on_wallet_page': True
+    }
+
+    return render(request, 'profiles/wallet.html', context)
+

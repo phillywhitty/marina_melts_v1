@@ -423,21 +423,10 @@ Testing documentation can be found [here.](TESTING.md)
 
 ## Bugs
 ### Known Bugs
-- Occasionally on a device with low RAM, the Google Maps API won't load.
-- Devices with low RAM may have stuttered animations.
-- Offline, using the backup map, the images don't switch the first time the page loads. No errors are shown on the console. A refresh usually solves the issue.
-- Very slow connections may have users see the thumbnails pop in during iframe loading, rather than having the switch occur during the animation.
+
 
 ### Fixed Bugs
-- Jumbotron image wouldn't de-blur. Fixed by adding a custom class for selection and differentiation.
-- Markers wouldn't load if the connection to the API was slow. Fixed by adding a backup array to be used as a fall-back.
-- EmailJS wasn't allowing newsletters to be sent on the contact page. Fixed by giving each form a separate ID.
-- The map info window wouldn't dispose of itself but would open multiple instances, one over the other. Fixed by moving the initialisation instance outside of the click function.
-- The info window would concatenate one country's information with another after clicked. Fixed by clearing the info window content on each click before populating it with info.
-- If a country had multiple first languages, the info window would have a display that clipped them as they were stored in an array themselves. Fixed by writing a custom function to deal with languages.
-- All map markers would bounce if they had animations set to active. Fixed by looping through the markers and setting them to no animation before activating the clicked marker's animation.
-- The modal for images in the gallery wouldn't open because of the blur function. Fixed by changing the HTML structure on the page and the iframe.
-- One I added SASS, many of the site's display features were broken. Fixed by cleaning up the CSS files and removing clashing styles.
+
 
 ----
 
