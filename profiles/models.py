@@ -55,10 +55,10 @@ class MyWallet(models.Model):
         return self.user.username
 
 
-class WishlistItem(models.Model):
+class WishItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    added_at = models.DateTimeField(auto_now_add=True)
+    quantity = models.SmallIntegerField(default=1)
 
     def __str__(self):
-        return self.user.username
+        return f"{self.quantity} of {self.product}"
