@@ -162,12 +162,8 @@ input[name='q']::placeholder {
     clear: left;
     font: 14px Helvetica, Arial, sans-serif;
     padding-left: 20px;
-    background-color: #9D4ED9 !important;
 }
 
-#mc_embed_signup .button {
-    background-color: #9D4ED9 !important;
-}
 
 #mce-EMAIL {
     max-width: 20rem;
