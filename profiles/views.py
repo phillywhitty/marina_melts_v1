@@ -54,14 +54,24 @@ def order_history(request, order_number):
 def WalletView(request):
     user = request.user
     wallet, created = MyWallet.objects.get_or_create(user=user)
+
     if request.method == 'POST':
-        # If the form is submitted, process the form data
         form = MyWalletForm(request.POST, instance=wallet)
         if form.is_valid():
             form.save()
-            return redirect('success_page')
-            # Redirect to a success page after saving the form
+            messages.success(request, 'Wallet updated successfully')
+            return redirect('wallet')  # Redirect to avoid resubmitting POST data
+        else:
+            # Corrected the message concatenation to properly display the error message.
+            messages.error(request, 'Update failed. Please ensure the info is valid.')
     else:
-        # If the form is not submitted, initializes the form with existing data
         form = MyWalletForm(instance=wallet)
-    return render(request, 'profiles/wallet.html', {'form': form})
+
+
+    context = {
+        'form': form,
+        'on_wallet_page': True
+    }
+
+    return render(request, 'profiles/wallet.html', context)
+

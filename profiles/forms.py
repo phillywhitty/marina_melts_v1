@@ -37,7 +37,7 @@ class UserProfileForm(forms.ModelForm):
 class MyWalletForm(forms.ModelForm):
     class Meta:
         model = MyWallet
-        fields = ['card_number', 'expire_number', 'cvv_number']
+        fields = ['name', 'card_number', 'expire_number', 'cvv_number']
     def clean_default_cvv_number(self):
         # Add any custom validation logic for the CVV number if needed
         cvv_number = self.cleaned_data.get('default_cvv_number')
