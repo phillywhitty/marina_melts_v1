@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile, MyWallet
@@ -52,28 +52,64 @@ def order_history(request, order_number):
 
 
 def WalletView(request):
-    user = request.user
-    wallet, created = MyWallet.objects.get_or_create(user=user)
-
-    if request.method == 'POST':
-        form = MyWalletForm(request.POST, instance=wallet)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Wallet updated successfully')
-            return redirect('wallet')  # Redirect to avoid resubmitting POST data
+    if request.user.is_authenticated:
+        checkWallet = MyWallet.objects.filter(user=request.user)
+        if checkWallet:
+            getWallet=MyWallet.objects.get(user=request.user)
         else:
-            # Corrected the message concatenation to properly display the error message.
-            messages.error(request, 'Update failed. Please ensure the info is valid.')
+            getWallet=None
+        context = {
+            'checkWallet': checkWallet,
+            'getWallet': getWallet
+        }
+        return render(request, 'profiles/my_wallet_page.html', context)
     else:
-        form = MyWalletForm(instance=wallet)
+        return redirect('/accounts/login/')
+
+def AddWalletView(request):
+    if request.user.is_authenticated:
+        user = request.user
+        wallet, created = MyWallet.objects.get_or_create(user=user)
+
+        if request.method == 'POST':
+            form = MyWalletForm(request.POST, instance=wallet)
+            if form.is_valid():
+                myWalletVar = form.save(commit=False)
+                myWalletVar.user=request.user
+                myWalletVar.save()
+
+                messages.success(request, 'Wallet updated successfully')
+                return redirect('wallet')  # Redirect to avoid resubmitting POST data
+            else:
+                # Corrected the message concatenation to properly display the error message.
+                messages.error(request, 'Update failed. Please ensure the info is valid.')
+        else:
+            form = MyWalletForm(instance=wallet)
 
 
-    context = {
-        'form': form,
-        'on_wallet_page': True
-    }
+        context = {
+            'form': form,
+            'on_wallet_page': True
+        }
 
-    return render(request, 'profiles/wallet.html', context)
+        return render(request, 'profiles/wallet.html', context)
+    else:
+        return redirect('/accounts/login/')
+
+
+
+def delete_wallet(request):
+    if request.user.is_authenticated:
+        wallet_id = request.POST.get('wallet_id')
+        print(wallet_id)
+        try:
+            getWallet = MyWallet.objects.get(user=request.user, id=wallet_id)
+            getWallet.delete()
+            return redirect('wallet')
+        except:
+            return redirect('wallet')
+    else:
+        return redirect('/accounts/login/')
 
 def WishItem(request):
     user = request.user
@@ -98,4 +134,5 @@ def WishItem(request):
     }
 
     return render(request, 'profiles/wallet.html', context)
+
 

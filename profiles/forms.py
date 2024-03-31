@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserProfile, MyWallet, WishItem
+from .models import UserProfile, MyWallet
 
 
 class UserProfileForm(forms.ModelForm):
@@ -37,7 +37,7 @@ class UserProfileForm(forms.ModelForm):
 class MyWalletForm(forms.ModelForm):
     class Meta:
         model = MyWallet
-        fields = ['user', 'card_number', 'expire_number', 'cvv_number']
+        fields = ['name', 'card_number', 'expire_number', 'cvv_number']
     def clean_default_cvv_number(self):
         # Add any custom validation logic for the CVV number if needed
         cvv_number = self.cleaned_data.get('default_cvv_number')
@@ -45,7 +45,4 @@ class MyWalletForm(forms.ModelForm):
             raise forms.ValidationError("CVV number must be a 3-digit number.")
         return cvv_number
 
-class MYWishItem(forms.ModelForm):
-    class Meta:
-        model = WishItem
-        fields = ['user', 'product', 'quantity']
+
