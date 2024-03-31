@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile, MyWallet
+from .models import UserProfile, MyWallet, WishlistTable
 from .forms import UserProfileForm, MyWalletForm
 
 from checkout.models import Order
@@ -136,3 +136,9 @@ def WishItem(request):
     return render(request, 'profiles/wallet.html', context)
 
 
+def my_wishlist(request):
+    varWishlist = WishlistTable.objects.filter(user=request.user)
+    print(varWishlist)
+    print('test123')
+    context = {'varWishlist':varWishlist}
+    return render(request, "profiles/wishlist.html", context)

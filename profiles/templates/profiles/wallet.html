@@ -30,7 +30,7 @@
         <div class="col-12 col-lg-6">
             <!-- Default Delivery Information -->
             <p class="text-muted">Default Delivery Information</p>
-            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+            <form class="mt-3" action="{% url 'add_wallet' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <button class="btn btn-black rounded-0 text-uppercase float-right mb-3">Save Card Information</button>
