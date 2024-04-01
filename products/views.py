@@ -67,8 +67,10 @@ def product_detail(request, product_id):
     all_reviews = ReviewTable.objects.filter(product=product_id)
     print(all_reviews)
 
-    checkWishlist=WishlistTable.objects.filter(user=request.user, product=product_id)
-
+    try:
+        checkWishlist=WishlistTable.objects.filter(user=request.user, product=product_id)
+    except:
+        checkWishlist=None
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
