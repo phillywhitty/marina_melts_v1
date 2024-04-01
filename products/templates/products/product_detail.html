@@ -109,33 +109,6 @@
                             </div>
                         </div>
 
-
-                        <div class="col-12">
-                            <div class="form-group w-50">
-                                
-                                    {% if request.user.is_authenticated %}
-                                    {% if checkWishlist %}
-                                    <div class="input-group">
-                                        <button class="btn btn-light" id="wishlist_button_id" style="color:orange;" type="button" onclick="func_make_wishlist('{{ product.id }}')">
-                                            <i class="fa fa-heart" style="font-size:24px;""></i>
-                                        </button>
-                                    </div>
-                                    <span id="id_status_wishlist">Added to wishlist</span>
-                                    {% else %}
-                                    <div class="input-group">
-                                        <button class="btn btn-secondary" id="wishlist_button_id" type="button" onclick="func_make_wishlist('{{ product.id }}')">
-                                            <i class="fa fa-heart" style="font-size:24px"></i>
-                                        </button>
-                                    </div>
-                                    <span id="id_status_wishlist"></span>
-                                    {% endif %}
-                                    {% else %}
-                                    {% endif %}
-                                
-                                
-                            </div>
-                        </div>
-
                         <div class="col{% if s %}-12 mt-2{% endif %}">
                             <!-- Back to shopping button -->
                             <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
@@ -166,21 +139,21 @@
                     <label>Review Comment:</label><br>
                     <textarea name="comment" id="review-comment" rows="4" class="form-control"></textarea><br>
                     <!-- Rating input -->
-<!--                    <label>Rating:</label><br>-->
-<!--                    <div class="rating">-->
-<!--                        &lt;!&ndash; Rating stars &ndash;&gt;-->
-<!--                        <label for="star5" title="5 stars">5</label>-->
-<!--                        <input type="radio" id="star5" name="rate" value="5" required>-->
-<!--                        <label for="star4" title="4 stars">4</label>-->
-<!--                        <input type="radio" id="star4" name="rate" value="4">-->
-<!--                        <label for="star3" title="3 stars">3</label>-->
-<!--                        <input type="radio" id="star3" name="rate" value="3">-->
-<!--                        <label for="star2" title="2 stars">2</label>-->
-<!--                        <input type="radio" id="star2" name="rate" value="2">-->
-<!--                        <label for="star1" title="1 star">1</label>-->
-<!--                        <input type="radio" id="star1" name="rate" value="1">-->
-<!--                    </div>-->
-
+                    <label>Rating:</label><br>
+                    <div class="rating">
+                        <!-- Rating stars -->
+                        <label for="star5" title="5 stars">5</label>
+                        <input type="radio" id="star5" name="rate" value="5" required>
+                        <label for="star4" title="4 stars">4</label>
+                        <input type="radio" id="star4" name="rate" value="4">
+                        <label for="star3" title="3 stars">3</label>
+                        <input type="radio" id="star3" name="rate" value="3">
+                        <label for="star2" title="2 stars">2</label>
+                        <input type="radio" id="star2" name="rate" value="2">
+                        <label for="star1" title="1 star">1</label>
+                        <input type="radio" id="star1" name="rate" value="1">
+                    </div>
+                    <br>
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-warning product-submit">Submit Review</button>
                 </form>
@@ -189,16 +162,6 @@
                 <h2>Login Required</h2>
                 <p>You must be logged in to leave a review. <a href="{% url 'account_login' %}">Login here</a>.</p>
                 {% endif %}
-
-                <hr>
-
-<!--                <div id="id_div_comment_5"></div>-->
-                {% for reviewRecord in all_reviews %}
-                <div id="id_div_comment_{{reviewRecord.id}}"></div>
-                <span>{{ reviewRecord.user.username }}: {{ reviewRecord.comment }} {% if request.user == reviewRecord.user %} (<span style="color:blue;" class="" onclick="func_edit_review('{{ reviewRecord.id }}', '{{reviewRecord.comment}}')">edit</span> | <a style="color:red;" href="{% url 'delete_review' reviewRecord.id %}" class="">delete</a>){% endif %}</span>
-                <hr>
-
-                {% endfor %}
 
             </div>
         </div>
@@ -214,56 +177,6 @@
 
 {% block postloadjs %}
 <!-- Post-load JavaScript section -->
-
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-
-<script>
-
-    function func_edit_review(commentId, commentContent){
-        console.log(commentId)
-        console.log(commentContent)
-        console.log(`id_div_comment_${commentId}`)
-
-        console.log('yyy');
-        document.getElementById(`id_div_comment_${commentId}`).innerHTML=`<form action="{% url 'editReviews' %}" method="POST">
-        {% csrf_token %}
-        <input value="${commentContent}" type="text" name="comment_content">
-        <input value="${commentId}" type="hidden" name="commentId">
-        <button type="submit" class="btn btn-sm btn-warning">update</button>
-        </form>`;
-        //document.getElementById(`id_div_comment_${commentId}`).innerHTML=`<input type="text">`;
-    }
-
-
-    function func_make_wishlist(product_id){
-        console.log('hey working that ...')
-        console.log(product_id)
-        $.ajax({
-            url : '{% url 'make_wishlist' %}',
-            type : 'POST',
-            data : {product_id:product_id}
-        })
-        .done(function(response){
-            console.log(response)
-            if (response === 'True') {
-                //console.log('this is true')
-                document.getElementById('wishlist_button_id').style='color:orange';
-                document.getElementById('wishlist_button_id').classList.add('btn-light');
-                document.getElementById('wishlist_button_id').classList.remove('btn-secondary');
-                document.getElementById('id_status_wishlist').innerHTML="Added to wishlist";
-            } else {
-                //console.log('this is false');
-                document.getElementById('wishlist_button_id').style='color:white';
-                document.getElementById('wishlist_button_id').classList.add('btn-secondary');
-                document.getElementById('wishlist_button_id').classList.remove('btn-light');
-                document.getElementById('id_status_wishlist').innerHTML="Removed from wishlist";
-            }
-        });
-    }
-</script>
 {{ block.super }}
 <!-- Include quantity input script -->
 {% include 'products/includes/quantity_input_script.html' %}

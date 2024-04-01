@@ -45,4 +45,7 @@ class MyWalletForm(forms.ModelForm):
             raise forms.ValidationError("CVV number must be a 3-digit number.")
         return cvv_number
 
-
+class MYWishItem(forms.ModelForm):
+    class Meta:
+        model = WishItem
+        fields = ['user', 'product', 'quantity']

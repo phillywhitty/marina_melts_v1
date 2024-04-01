@@ -3,7 +3,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile, MyWallet, WishlistTable
 from .forms import UserProfileForm, MyWalletForm
-
 from checkout.models import Order
 
 
@@ -92,24 +91,7 @@ def AddWalletView(request):
             'on_wallet_page': True
         }
 
-        return render(request, 'profiles/wallet.html', context)
-    else:
-        return redirect('/accounts/login/')
-
-
-
-def delete_wallet(request):
-    if request.user.is_authenticated:
-        wallet_id = request.POST.get('wallet_id')
-        print(wallet_id)
-        try:
-            getWallet = MyWallet.objects.get(user=request.user, id=wallet_id)
-            getWallet.delete()
-            return redirect('wallet')
-        except:
-            return redirect('wallet')
-    else:
-        return redirect('/accounts/login/')
+    return render(request, 'profiles/wallet.html', context)
 
 def WishItem(request):
     user = request.user
@@ -135,10 +117,3 @@ def WishItem(request):
 
     return render(request, 'profiles/wallet.html', context)
 
-
-def my_wishlist(request):
-    varWishlist = WishlistTable.objects.filter(user=request.user)
-    print(varWishlist)
-    print('test123')
-    context = {'varWishlist':varWishlist}
-    return render(request, "profiles/wishlist.html", context)

@@ -35,7 +35,7 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = [
-    '8000-phillywhitt-wexfordtrea-4fuituqzqr9.ws-eu110.gitpod.io', '*',
+    '8000-phillywhitt-wexfordtrea-xy3q2whvbhp.ws-eu108.gitpod.io',
     "wexford-treasures-afe33013c7ab.herokuapp.com",
 ] 
 
