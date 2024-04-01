@@ -31,11 +31,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = [
-    '8000-phillywhitt-wexfordtrea-xy3q2whvbhp.ws-eu108.gitpod.io',
+    '8000-phillywhitt-wexfordtrea-4l3hncvin64.ws-eu110.gitpod.io',
     "wexford-treasures-afe33013c7ab.herokuapp.com",
 ] 
 
