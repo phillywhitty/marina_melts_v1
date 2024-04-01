@@ -48,17 +48,17 @@ class MyWallet(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=16, unique=True, blank=True)
     card_number = models.CharField(max_length=16, unique=True, blank=True)
-    expire_number = models.DateField(blank=True)
-    cvv_number = models.IntegerField(unique=True, blank=True)
+    expire_number = models.DateField(blank=True, null=True)
+    cvv_number = models.IntegerField(unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
 
 
-class WishItem(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.SmallIntegerField(default=1)
 
+class WishlistTable(models.Model):
+    user = models.ForeignKey(User, models.CASCADE)
+    product = models.ForeignKey(Product, models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        return f"{self.quantity} of {self.product}"
+        return str(self.id)
