@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category, Review, ReviewTable
-from .forms import ProductForm, ReviewForm
+from .models import Product, Category, ReviewTable
+from .forms import ProductForm
 from django.views.decorators.csrf import csrf_exempt
 from profiles.models import WishlistTable
 # Product Views.
@@ -63,31 +63,93 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = Review.objects.filter(product=product_id)
+    all_reviews = ReviewTable.objects.filter(product=product_id)
 
-    try:
-        checkWishlist=WishlistTable.objects.filter(user=request.user, product=product_id)
-    except:
-        checkWishlist=None
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            new_review = form.save(commit=False)
-            new_review.product = product
-            new_review.user = request.user
-            new_review.save()
-            return redirect('product_detail', product_id=product_id)
-    else:
-        form = ReviewForm()
+
+    checkWishlist=WishlistTable.objects.filter(user=request.user, product=product_id)
+
+    # if request.method == 'POST':
+    #     form = ReviewForm(request.POST)
+    #     if form.is_valid():
+    #         new_review = form.save(commit=False)
+    #         new_review.product = product
+    #         new_review.user = request.user
+    #         new_review.save()
+    #         return redirect('product_detail', product_id=product_id)
+    # else:
+    #     form = ReviewForm()
 
     context = {
         'product': product,
-        'reviews': reviews,
         'all_reviews': all_reviews,
-        'form': form,
         'checkWishlist':checkWishlist,
     }
     return render(request, 'products/product_detail.html', context)
+
+
+@csrf_exempt
+def make_wishlist(request):
+    product_id = request.POST.get('product_id')
+    getProduct = Product.objects.get(id=product_id)
+   
+
+    if WishlistTable.objects.filter(user=request.user,product=getProduct):
+        WishlistTable.objects.get(user=request.user,product=getProduct).delete()
+        return HttpResponse(False)
+    else:
+        varWishlist = WishlistTable(
+            user=request.user,
+            product=getProduct
+        )
+        varWishlist.save()
+        return HttpResponse(True)
+
+
+@login_required
+def leave_review(request):
+    if request.user.is_authenticated:
+        product_id = request.POST.get('product_id')
+        comment = request.POST.get('comment')
+        getProduct = Product.objects.get(id=product_id)
+        varReview = ReviewTable(
+            user = request.user,
+            product=getProduct,
+            comment=comment
+        )
+        varReview.save()
+        return redirect(f'/products/{product_id}/')
+    else:
+        return redirect('/accounts/login/')
+
+
+@login_required
+def delete_review(request, comment_id):
+    if request.user.is_authenticated:
+        getComment = ReviewTable.objects.get(id=comment_id)
+        product_id=getComment.product.id
+        getComment.delete()
+        messages.success(request, "Review is deleted!")
+        return redirect(f'/products/{product_id}/')
+    else:
+        return redirect('/accounts/login/')
+
+
+
+@login_required
+def editReviews(request):
+    if request.user.is_authenticated:
+        comment_content= request.POST.get('comment_content')
+        commentId= request.POST.get('commentId')
+
+        getComment = ReviewTable.objects.get(id=commentId)
+        getComment.comment=comment_content
+        getComment.save()
+        product_id = getComment.product.id
+
+        messages.success(request, "Review updated!")
+        return redirect(f'/products/{product_id}/')
+    else:
+        return redirect('/accounts/login/')
 
 
 @login_required

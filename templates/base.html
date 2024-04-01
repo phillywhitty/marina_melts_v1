@@ -376,6 +376,7 @@
     {% block postloadjs %}
     <!-- Post-load JavaScript -->
     <script>
+        jQuery.noConflict();
         $('.toast').toast('show');
     </script>
     {% endblock %}
