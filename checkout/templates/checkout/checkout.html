@@ -3,10 +3,12 @@
 {% load bag_tools %}
 
 {% block extra_css %}
+<!-- Load additional CSS file for this page -->
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block page_header %}
+<!-- Header Section -->
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
@@ -15,16 +17,18 @@
 {% endblock %}
 
 {% block content %}
+<!-- Main content block -->
 <div class="overlay"></div>
 <div class="container">
     <div class="row">
         <div class="col">
             <hr>
+            <!-- Display the "Checkout" heading -->
             <h2 class="logo-font mb-4">Checkout</h2>
             <hr>
         </div>
     </div>
-
+    <!-- Display order summary -->
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last mb-5">
             <p class="text-muted">Order Summary ({{ product_count }})</p>
@@ -36,8 +40,10 @@
                     <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                 </div>
             </div>
+            <!-- Display individual items in the order -->
             {% for item in bag_items %}
             <div class="row">
+                <!-- Display item image and details -->
                 <div class="col-2 mb-1">
                     <a href="{% url 'product_detail' item.product.id %}">
                         {% if item.product.image %}
@@ -47,6 +53,7 @@
                         {% endif %}
                     </a>
                 </div>
+                <!-- Display item name, size (if applicable), quantity, and subtotal -->
                 <div class="col-7">
                     <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                     <p class="my-0 small">Size:
@@ -59,6 +66,7 @@
             </div>
             {% endfor %}
             <hr class="my-0">
+            <!-- Display order totals -->
             <div class="row text-black text-right">
                 <div class="col-7 offset-2">
                     <p class="my-0">Order Total:</p>
@@ -72,15 +80,18 @@
                 </div>
             </div>
         </div>
+        <!-- Display order form for user details and payment -->
         <div class="col-12 col-lg-6">
             <p class="text-muted">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                    <!-- Render user details fields using crispy forms -->
                     {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                 </fieldset>
+                <!-- Delivery information section -->
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
                     {{ order_form.phone_number | as_crispy_field }}
@@ -90,6 +101,7 @@
                     {{ order_form.county | as_crispy_field }}
                     {{ order_form.postcode | as_crispy_field }}
                     {{ order_form.country | as_crispy_field }}
+                    <!-- Checkbox to save delivery info to profile -->
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
                         <label class="form-check-label" for="id-save-info">Save this delivery information to my
@@ -104,16 +116,17 @@
                         {% endif %}
                     </div>
                 </fieldset>
+                <!-- Payment section -->
                 <fieldset class="px-3">
                     <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                    <!-- A Stripe card element will go here -->
+                    <!-- Stripe card element will be inserted here -->
                     <div class="mb-3" id="card-element"></div>
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                    <!-- Pass the client secret to the view so we can get the payment intent id -->
+                    <!-- Hidden input to pass client secret to the view -->
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
-
+                <!-- Submit buttons -->
                 <div class="submit-button text-right mt-5 mb-2">
                     <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
                         <span class="icon">
@@ -121,12 +134,14 @@
                         </span>
                         <span class="font-weight-bold">Adjust Bag</span>
                     </a>
+                    <!-- Button to complete order -->
                     <button id="submit-button" class="btn btn-black rounded-0">
                         <span class="font-weight-bold">Complete Order</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
                         </span>
                     </button>
+                    <!-- Display warning about card charge -->
                     <p class="small text-danger my-0">
                         <span class="icon">
                             <i class="fas fa-exclamation-circle"></i>
@@ -138,6 +153,7 @@
         </div>
     </div>
 </div>
+<!-- Loading overlay for payment processing -->
 <div id="loading-overlay">
     <div class="text-light logo-font loading-spinner">
         <span class="icon">
@@ -148,8 +164,10 @@
 {% endblock %}
 
 {% block postloadjs %}
+<!-- Load Stripe public key and client secret -->
 {{ block.super }}
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
+<!-- Load custom JavaScript for Stripe elements -->
 <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
