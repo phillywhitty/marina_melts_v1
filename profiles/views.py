@@ -138,7 +138,5 @@ def WishItem(request):
 
 def my_wishlist(request):
     varWishlist = WishlistTable.objects.filter(user=request.user)
-    print(varWishlist)
-    print('test123')
     context = {'varWishlist':varWishlist}
     return render(request, "profiles/wishlist.html", context)
