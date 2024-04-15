@@ -6,9 +6,8 @@ from django_countries.fields import CountryField
 from products.models import Product
 from django.conf import settings
 
-DATE_INPUT_FORMATS = settings.DATE_INPUT_FORMATS
 
-
+# UserProfile model to maintain user delivery information and order history
 class UserProfile(models.Model):
     """
     A user profile model for maintaining default
@@ -31,7 +30,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-
+# Signal to create or update UserProfile when User is saved
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
@@ -43,6 +42,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     instance.userprofile.save()
 
 
+# MyWallet model to maintain user card information
 class MyWallet(models.Model):
     """
     A user profile model for maintaining default
@@ -58,7 +58,7 @@ class MyWallet(models.Model):
         return self.user.username
 
 
-
+# WishlistTable model to maintain user wishlists for products
 class WishlistTable(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
     product = models.ForeignKey(Product, models.CASCADE)

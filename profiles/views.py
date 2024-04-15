@@ -3,10 +3,10 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile, MyWallet, WishlistTable
 from .forms import UserProfileForm, MyWalletForm
-
 from checkout.models import Order
 
 
+# User Profile View
 @login_required
 def profile(request):
     """ Display the user's profile. """
@@ -32,8 +32,7 @@ def profile(request):
     }
 
     return render(request, template, context)
-
-
+#Display order history for a specific order number
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -51,6 +50,7 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
+# My Wallet View
 def WalletView(request):
 
     if request.user.is_authenticated:
@@ -70,11 +70,11 @@ def WalletView(request):
         return redirect('/accounts/login/')
 
 
+# Add Wallet View
 def AddWalletView(request):
     if request.user.is_authenticated:
         user = request.user
-        # wallet, created = MyWallet.objects.get_or_create(user=user)
-
+       
         if request.method == 'POST':
             form = MyWalletForm(request.POST)
             if form.is_valid():
@@ -101,7 +101,7 @@ def AddWalletView(request):
         return redirect('/accounts/login/')
 
 
-
+# Delete Wallet View
 def delete_wallet(request):
 
     if request.user.is_authenticated:
@@ -117,6 +117,16 @@ def delete_wallet(request):
         return redirect('/accounts/login/')
 
 
+# View to display the user's wishlist
+def my_wishlist(request):
+
+    varWishlist = WishlistTable.objects.filter(user=request.user)
+    context = {'varWishlist':varWishlist}
+    
+    return render(request, "profiles/wishlist.html", context)
+
+
+# View to handle adding items to the user's wishlist
 def WishItem(request):
 
     user = request.user
@@ -141,11 +151,3 @@ def WishItem(request):
     }
 
     return render(request, 'profiles/wallet.html', context)
-
-
-def my_wishlist(request):
-
-    varWishlist = WishlistTable.objects.filter(user=request.user)
-    context = {'varWishlist':varWishlist}
-    
-    return render(request, "profiles/wishlist.html", context)

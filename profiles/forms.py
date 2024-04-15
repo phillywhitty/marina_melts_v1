@@ -2,9 +2,11 @@ from django import forms
 from .models import UserProfile, MyWallet
 
 
+# Form for UserProfile model
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
+        # Exclude the 'user' field from the form
         exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
@@ -34,6 +36,7 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].label = False
 
 
+# Form for MyWallet model
 class MyWalletForm(forms.ModelForm):
     class Meta:
         model = MyWallet
@@ -45,6 +48,3 @@ class MyWalletForm(forms.ModelForm):
             raise forms.ValidationError("CVV number must be a 3-digit number.")
         return cvv_number
 
-
-class DateInput(forms.DateInput):
-    input_type = 'date'

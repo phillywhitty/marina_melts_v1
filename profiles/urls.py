@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# Defines URL patterns for managing profiles app
 urlpatterns = [
     path('', views.profile, name='profile'),
     path('wallet/', views.WalletView, name='wallet'),
