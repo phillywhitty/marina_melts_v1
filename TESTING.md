@@ -25,6 +25,7 @@ Go back to [README.md](/README.md)
 | Log In |![log_in](./assets/testing/html/log_in_html_checker.png) | <mark>PASS<mark> |
 | My Profile |![my_profile](./assets/testing/html/my_profile_html_checker.png) | <mark>PASS<mark> |
 | My Wallet |![wallet](./assets/testing/html/my_wallet_html_checker.png) | <mark>PASS<mark> |
+| My Wishlist |![wallet](./assets/testing/html/my_wishlist_html_checker.png) | <mark>PASS<mark> |
 | Checkout |![checkout](./assets/testing/html/checkout_html_checker.png) | <mark>PASS<mark> |
 | Checkout Success |![checkout_success](./assets/testing/html/checkout_success_html_checker.png) | <mark>PASS<mark> |
 | Log Out |![log_out](./assets/testing/html/log_out_html_checker.png) | <mark>PASS<mark> |

@@ -51,7 +51,7 @@ class MyWallet(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=16, unique=True, blank=True)
     card_number = models.CharField(max_length=16, unique=True, blank=True)
-    expire_number = models.DateField()
+    expire_number = models.CharField(max_length=5, blank=True, default="01/50")
     cvv_number = models.IntegerField(unique=True, blank=True, null=True)
 
     def __str__(self):

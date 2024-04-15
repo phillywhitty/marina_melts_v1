@@ -1,12 +1,14 @@
 from django import forms
 from .models import UserProfile, MyWallet
+from django.core.exceptions import ValidationError
+from django.forms.widgets import DateInput
+from datetime import datetime
+import re
 
 
-# Form for UserProfile model
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        # Exclude the 'user' field from the form
         exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
@@ -36,15 +38,32 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].label = False
 
 
-# Form for MyWallet model
+class ExpiryDateField(forms.DateField):
+    def to_python(self, value):
+        try:
+            # Parse the input to a Python datetime object
+            date_obj = datetime.strptime(f"01/{value}", '%d/%m/%y').date()
+            return date_obj
+        except ValueError:
+            # If validation fails, raise a custom error
+            raise ValidationError("Enter a valid expiry date in mm/yy format.")
+
 class MyWalletForm(forms.ModelForm):
+    expire_number = forms.CharField(max_length=5, label='Expiration Date (mm/yy)')
     class Meta:
         model = MyWallet
         fields = ['name', 'card_number', 'expire_number', 'cvv_number']
-    def clean_default_cvv_number(self):
-        # Add any custom validation logic for the CVV number if needed
-        cvv_number = self.cleaned_data.get('default_cvv_number')
+
+    def clean_cvv_number(self):
+        cvv_number = self.cleaned_data.get('cvv_number')
         if cvv_number and (cvv_number < 100 or cvv_number > 999):
-            raise forms.ValidationError("CVV number must be a 3-digit number.")
+            raise ValidationError("CVV number must be a 3-digit number.")
         return cvv_number
 
+    def clean_expire_number(self):
+        expire_number = self.cleaned_data.get('expire_number')
+        if not expire_number:
+            raise ValidationError("Expiry date is required.")
+        elif not re.match(r'\d{2}/\d{2}', expire_number):
+            raise forms.ValidationError('Invalid expiration date format. Please use mm/yy format.')
+        return expire_number
