@@ -3,13 +3,12 @@ import uuid
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
-
 from django_countries.fields import CountryField
-
 from products.models import Product
 from profiles.models import UserProfile
 
 
+# Model for managing orders and their details
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
@@ -34,7 +33,8 @@ class Order(models.Model):
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False,
                                   blank=False, default='')
-
+    
+    # Methods for managing order and total calculations
     def _generate_order_number(self):
         """
         Generate a random, unique order number using UUID
@@ -70,6 +70,7 @@ class Order(models.Model):
         return self.order_number
 
 
+# A model to represent a line item in an order.
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
@@ -81,7 +82,7 @@ class OrderLineItem(models.Model):
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)
-
+    # Method to calculate and save line item total
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total

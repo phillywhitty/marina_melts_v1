@@ -4,6 +4,9 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django_countries.fields import CountryField
 from products.models import Product
+from django.conf import settings
+
+DATE_INPUT_FORMATS = settings.DATE_INPUT_FORMATS
 
 
 class UserProfile(models.Model):
@@ -48,7 +51,7 @@ class MyWallet(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=16, unique=True, blank=True)
     card_number = models.CharField(max_length=16, unique=True, blank=True)
-    expire_number = models.DateField(blank=True, null=True)
+    expire_number = models.DateField()
     cvv_number = models.IntegerField(unique=True, blank=True, null=True)
 
     def __str__(self):

@@ -45,3 +45,6 @@ class MyWalletForm(forms.ModelForm):
             raise forms.ValidationError("CVV number must be a 3-digit number.")
         return cvv_number
 
+
+class DateInput(forms.DateInput):
+    input_type = 'date'

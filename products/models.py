@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+# Category model representing product categories
 class Category(models.Model):
 
     class Meta:
@@ -16,6 +17,7 @@ class Category(models.Model):
         return self.friendly_name
 
 
+# Product model representing products in the system
 class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True,
                                  on_delete=models.SET_NULL)
@@ -33,8 +35,7 @@ class Product(models.Model):
         return self.name
 
 
-
-
+# CommentTable model to store comments related to products
 class CommentTable(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
     product = models.ForeignKey(Product, models.CASCADE)
@@ -45,6 +46,7 @@ class CommentTable(models.Model):
         return str(self.id)
 
 
+# ReviewTable model to store reviews related to products
 class ReviewTable(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
     product = models.ForeignKey(Product, models.CASCADE)

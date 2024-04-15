@@ -1,23 +1,23 @@
+import stripe
+import json
+
 from django.shortcuts import render, redirect, reverse
 from django.shortcuts import get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-
 from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
 
-import stripe
-import json
 
-
+# Handle caching of checkout data for payment processing
 @require_POST
 def cache_checkout_data(request):
+    
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -33,13 +33,17 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+ # Handle the checkout process, including form validation, 
+ # creating orders, and payment processing.
 def checkout(request):
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
 
+        # Validate order form data
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -59,6 +63,7 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
+            # Process line items
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -96,6 +101,7 @@ def checkout(request):
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
+        # Handle GET request for checkout page
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at this time")
@@ -132,7 +138,7 @@ def checkout(request):
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
-
+    # Render checkout template
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
@@ -144,9 +150,8 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
-    """
-    Handle successful checkouts
-    """
+    
+    # Handle successful checkouts and render success page
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -177,7 +182,7 @@ def checkout_success(request, order_number):
 
     if 'bag' in request.session:
         del request.session['bag']
-
+    # Render success template
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,

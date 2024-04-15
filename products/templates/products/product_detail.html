@@ -14,7 +14,6 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
 <!-- Content section -->
 <div class="overlay"></div>
 <div class="container-fluid py-5">
@@ -108,22 +107,23 @@
                                 </div>
                             </div>
                         </div>
-
-
+                        <!-- Wishlist button and status -->
                         <div class="col-12">
                             <div class="form-group w-50">
-
                                 {% if request.user.is_authenticated %}
                                 {% if checkWishlist %}
+                                <!-- Button for adding to wishlist -->
                                 <div class="input-group">
                                     <button class="btn btn-light" id="wishlist_button_id" style="color:orange;"
                                         type="button" onclick="func_make_wishlist('{{ product.id }}')">
                                         <i class="fa fa-heart" style="font-size:24px;""></i>
                                     </button>
                                 </div>
+                                <!-- Wishlist status messages -->
                                 <div class="" id=" id_status_wishlist2"></div>
                                 <div class="" id="id_status_wishlist">Added to wishlist</div>
                                 {% else %}
+                                <!-- Button for adding to wishlist -->
                                 <div class="input-group">
                                     <button class="btn btn-secondary" id="wishlist_button_id" type="button"
                                         onclick="func_make_wishlist('{{ product.id }}')">
@@ -134,11 +134,9 @@
                                 {% endif %}
                                 {% else %}
                                 {% endif %}
-
-
                             </div>
                         </div>
-
+                        <!-- Back to shopping and Add to bag buttons -->
                         <div class="col{% if s %}-12 mt-2{% endif %}">
                             <!-- Back to shopping button -->
                             <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
@@ -157,7 +155,6 @@
                 </form>
                 <br>
                 <hr>
-
                 <!-- Review form (only shown to logged-in users) -->
                 {% if user.is_authenticated %}
                 <!-- Review form section -->
@@ -168,22 +165,6 @@
                     <input type="hidden" value="{{ product.id }}" name="product_id">
                     <label>Review Comment:</label><br>
                     <textarea name="comment" id="review-comment" rows="4" class="form-control"></textarea><br>
-                    <!-- Rating input -->
-                    <!--                    <label>Rating:</label><br>-->
-                    <!--                    <div class="rating">-->
-                    <!--                        &lt;!&ndash; Rating stars &ndash;&gt;-->
-                    <!--                        <label for="star5" title="5 stars">5</label>-->
-                    <!--                        <input type="radio" id="star5" name="rate" value="5" required>-->
-                    <!--                        <label for="star4" title="4 stars">4</label>-->
-                    <!--                        <input type="radio" id="star4" name="rate" value="4">-->
-                    <!--                        <label for="star3" title="3 stars">3</label>-->
-                    <!--                        <input type="radio" id="star3" name="rate" value="3">-->
-                    <!--                        <label for="star2" title="2 stars">2</label>-->
-                    <!--                        <input type="radio" id="star2" name="rate" value="2">-->
-                    <!--                        <label for="star1" title="1 star">1</label>-->
-                    <!--                        <input type="radio" id="star1" name="rate" value="1">-->
-                    <!--                    </div>-->
-
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-warning product-submit">Submit Review</button>
                 </form>
@@ -192,21 +173,18 @@
                 <h2>Login Required</h2>
                 <p>You must be logged in to leave a review. <a href="{% url 'account_login' %}">Login here</a>.</p>
                 {% endif %}
-
                 <hr>
-
-                <!--                <div id="id_div_comment_5"></div>-->
+                <!-- This section displays review comments, provides edit and delete options if the user has permission -->
                 {% for reviewRecord in all_reviews %}
                 <div id="id_div_comment_{{reviewRecord.id}}"></div>
                 <span>{{ reviewRecord.user.username }}: {{ reviewRecord.comment }}
                     {% if request.user == reviewRecord.user %} (<span style="color:blue;" class=""
                         onclick="func_edit_review('{{ reviewRecord.id }}', '{{reviewRecord.comment}}')">edit</span> | <a
                         style="color:red;" href="{% url 'delete_review' reviewRecord.id %}"
-                        class="">delete</a>){% endif %}</span>
+                        class="">delete</a>){% endif %}
+                </span>
                 <hr>
-
                 {% endfor %}
-
             </div>
         </div>
         <!-- End of product details column -->
@@ -214,8 +192,6 @@
     <!-- End of row -->
 </div>
 <!-- End of container fluid -->
-
-
 
 {% endblock %}
 
@@ -226,20 +202,20 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <script>
+    // Function to dynamically create a form for editing a review
     function func_edit_review(commentId, commentContent) {
-        
+         // Dynamically update the HTML content of the specified div with an edit form
         document.getElementById(`id_div_comment_${commentId}`).innerHTML = `<form action="{% url 'editReviews' %}" method="POST">
         {% csrf_token %}
         <input value="${commentContent}" type="text" name="comment_content">
         <input value="${commentId}" type="hidden" name="commentId">
         <button type="submit" class="btn btn-sm btn-warning">update</button>
         </form>`;
-        
+
     }
-
-
+    // Function to add/remove a product from the wishlist via AJAX
     function func_make_wishlist(product_id) {
-        
+
         $.ajax({
                 url: '/products/make_wishlist/',
                 type: 'POST',
@@ -248,15 +224,13 @@
                 }
             })
             .done(function (response) {
-                console.log(response)
+                // Update button style and status message based on response
                 if (response === 'True') {
-                    //console.log('this is true')
                     document.getElementById('wishlist_button_id').style = 'color:orange';
                     document.getElementById('wishlist_button_id').classList.add('btn-light');
                     document.getElementById('wishlist_button_id').classList.remove('btn-secondary');
                     document.getElementById('id_status_wishlist').innerHTML = "Added to wishlist";
                 } else {
-                    //console.log('this is false');
                     document.getElementById('wishlist_button_id').style = 'color:white';
                     document.getElementById('wishlist_button_id').classList.add('btn-secondary');
                     document.getElementById('wishlist_button_id').classList.remove('btn-light');
@@ -265,6 +239,7 @@
             });
     }
 </script>
+
 {{ block.super }}
 <!-- Include quantity input script -->
 {% include 'products/includes/quantity_input_script.html' %}

@@ -52,8 +52,10 @@ def order_history(request, order_number):
 
 
 def WalletView(request):
+
     if request.user.is_authenticated:
         checkWallet = MyWallet.objects.filter(user=request.user)
+
         if checkWallet:
             getWallet=MyWallet.objects.get(user=request.user)
         else:
@@ -63,16 +65,18 @@ def WalletView(request):
             'getWallet': getWallet
         }
         return render(request, 'profiles/my_wallet_page.html', context)
+
     else:
         return redirect('/accounts/login/')
+
 
 def AddWalletView(request):
     if request.user.is_authenticated:
         user = request.user
-        wallet, created = MyWallet.objects.get_or_create(user=user)
+        # wallet, created = MyWallet.objects.get_or_create(user=user)
 
         if request.method == 'POST':
-            form = MyWalletForm(request.POST, instance=wallet)
+            form = MyWalletForm(request.POST)
             if form.is_valid():
                 myWalletVar = form.save(commit=False)
                 myWalletVar.user=request.user
@@ -84,7 +88,7 @@ def AddWalletView(request):
                 # Corrected the message concatenation to properly display the error message.
                 messages.error(request, 'Update failed. Please ensure the info is valid.')
         else:
-            form = MyWalletForm(instance=wallet)
+            form = MyWalletForm()
 
 
         context = {
@@ -99,9 +103,10 @@ def AddWalletView(request):
 
 
 def delete_wallet(request):
+
     if request.user.is_authenticated:
         wallet_id = request.POST.get('wallet_id')
-        print(wallet_id)
+
         try:
             getWallet = MyWallet.objects.get(user=request.user, id=wallet_id)
             getWallet.delete()
@@ -111,7 +116,9 @@ def delete_wallet(request):
     else:
         return redirect('/accounts/login/')
 
+
 def WishItem(request):
+
     user = request.user
     wallet, created = WishItem.objects.get_or_create(user=user)
 
@@ -137,6 +144,8 @@ def WishItem(request):
 
 
 def my_wishlist(request):
+
     varWishlist = WishlistTable.objects.filter(user=request.user)
     context = {'varWishlist':varWishlist}
+    
     return render(request, "profiles/wishlist.html", context)

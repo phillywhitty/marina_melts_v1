@@ -2,8 +2,8 @@ from django.contrib import admin
 from .models import Product, Category, ReviewTable
 from .models import CommentTable
 
-# Register your models here.
 
+# Admin interface for Product model
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
@@ -16,6 +16,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
+# Admin interface for Category model
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
@@ -23,7 +24,7 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-
+# Admin interface for Comment model
 class CommentTableAdmin(admin.ModelAdmin):
     list_display = (
         'user',
@@ -31,6 +32,8 @@ class CommentTableAdmin(admin.ModelAdmin):
         'comment',
         'created_at',
     )
+
+# Admin interface for Review model
 class ReviewTableAdmin(admin.ModelAdmin):
     list_display = (
         'user',
@@ -39,7 +42,7 @@ class ReviewTableAdmin(admin.ModelAdmin):
         'created_at',
     )
 
-
+# Registering models with their respective admin customizations
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(CommentTable, CommentTableAdmin)
