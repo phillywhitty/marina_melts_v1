@@ -53,8 +53,8 @@
                 {% endif %}
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
-                    <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                    <a href="{% url 'edit_product' product.id %}"><u>Edit</u></a> |
+                    <a class="text-danger" href="{% url 'delete_product' product.id %}"><u>Delete</u></a>
                 </small>
                 {% endif %}
                 <!-- Product description -->
@@ -204,7 +204,7 @@
 <script>
     // Function to dynamically create a form for editing a review
     function func_edit_review(commentId, commentContent) {
-         // Dynamically update the HTML content of the specified div with an edit form
+        // Dynamically update the HTML content of the specified div with an edit form
         document.getElementById(`id_div_comment_${commentId}`).innerHTML = `<form action="{% url 'editReviews' %}" method="POST">
         {% csrf_token %}
         <input value="${commentContent}" type="text" name="comment_content">
