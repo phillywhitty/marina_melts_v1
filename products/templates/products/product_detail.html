@@ -179,9 +179,9 @@
                 <div id="id_div_comment_{{reviewRecord.id}}"></div>
                 <span>{{ reviewRecord.user.username }}: {{ reviewRecord.comment }}
                     {% if request.user == reviewRecord.user %} (<span style="color:blue;" class=""
-                        onclick="func_edit_review('{{ reviewRecord.id }}', '{{reviewRecord.comment}}')">edit</span> | <a
+                        onclick="func_edit_review('{{ reviewRecord.id }}', '{{reviewRecord.comment}}')"><u>edit</u></span> | <a
                         style="color:red;" href="{% url 'delete_review' reviewRecord.id %}"
-                        class="">delete</a>){% endif %}
+                        class=""><u>delete</u></a>){% endif %}
                 </span>
                 <hr>
                 {% endfor %}
