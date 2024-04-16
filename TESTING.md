@@ -67,7 +67,6 @@ Go back to [README.md](/README.md)
 | apps | home |![python](./assets/testing/python/home_apps-pep8.png) | <mark>PASS<mark> ||
 | urls | home |![python](./assets/testing/python/home_urls_pep8.png) | <mark>PASS<mark> ||
 | views | home |![python](./assets/testing/python/home_views_pep8.png) | <mark>PASS<mark> ||
-| test | home |![python](./assets/readme-images/testing/python/home-tests.PNG) | <mark>PASS<mark> ||
 | urls | home |![python](./assets/readme-images/testing/python/home-urls.PNG) | <mark>PASS<mark> ||
 | views | home |![python](./assets/readme-images/testing/python/home-views.PNG) | <mark>PASS<mark> ||
 | admin | checkout |![python](./assets/testing/python/checkout_admin_pep8.png )| <mark>PASS<mark> ||
