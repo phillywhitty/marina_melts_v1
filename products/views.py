@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse  # Added import for reverse
+from django.http import HttpResponse  # Added import for HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -11,7 +13,7 @@ from profiles.models import WishlistTable
 
 # View to display all products with search, sort, and filter functionalities
 def all_products(request):
-    """ A view to show all products, including sorting and search queries """
+    """A view to show all products, including sorting and search queries"""
 
     products = Product.objects.all()
     query = None
@@ -42,9 +44,11 @@ def all_products(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search basis!")
-                return redirect(reverse('products'))
-            queries = (
-                Q(name__icontains=query) | Q(description__icontains=query))
+                return redirect(reverse('all_products'))
+                queries = (
+                            Q(name__icontains=query) |
+                            Q(description__icontains=query)
+                        )
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -61,90 +65,21 @@ def all_products(request):
 
 # View to display product details and related reviews
 def product_detail(request, product_id):
-    """ A view to show individual product details """
+    """A view to show individual product details"""
 
     product = get_object_or_404(Product, pk=product_id)
     all_reviews = ReviewTable.objects.filter(product=product_id)
-    checkWishlist=WishlistTable.objects.filter(user=request.user, product=product_id)
+    check_wishlist = WishlistTable.objects.filter(
+                                                    user=request.user,
+                                                    product=product_id
+                                                )
 
     context = {
         'product': product,
         'all_reviews': all_reviews,
-        'checkWishlist':checkWishlist,
+        'check_wishlist': check_wishlist,
     }
     return render(request, 'products/product_detail.html', context)
-
-
-# Add Product View
-@login_required
-def add_product(request):
-    """ Add a product to the store """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
-
-    if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            product = form.save()
-            messages.success(request, 'Successfully added product!')
-            return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(request, 'Failed to update product. \
-                                     Please ensure the form is valid.')
-    else:
-        form = ProductForm()
-    template = 'products/add_product.html'
-    context = {
-        'form': form,
-    }
-
-    return render(request, template, context)
-
-
-# Edit Product View
-@login_required
-def edit_product(request, product_id):
-    """ Edit a product in the store """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
-
-    product = get_object_or_404(Product, pk=product_id)
-    if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(request, 'Failed to update product \
-                 Please ensure the form is valid.')
-    else:
-        form = ProductForm(instance=product)
-        messages.info(request, f'You are editing {product.name}')
-
-    template = 'products/edit_product.html'
-    context = {
-        'form': form,
-        'product': product,
-    }
-
-    return render(request, template, context)
-
-
-# Delete Product View
-@login_required
-def delete_product(request, product_id):
-    """ Delete a product from the store """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
-
-    product = get_object_or_404(Product, pk=product_id)
-    product.delete()
-    messages.success(request, 'Product deleted!')
-    return redirect(reverse('products'))
 
 
 # Add Review View
@@ -155,45 +90,45 @@ def leave_review(request):
         comment = request.POST.get('comment')
         getProduct = Product.objects.get(id=product_id)
         varReview = ReviewTable(
-            user = request.user,
+            user=request.user,
             product=getProduct,
             comment=comment
         )
         varReview.save()
-        return redirect(f'/products/{product_id}/')
+        return redirect('product_detail', product_id=product_id)
     else:
-        return redirect('/accounts/login/')
+        return redirect('login')
 
 
 # Edit Review View
 @login_required
-def editReviews(request):
+def edit_reviews(request):
     if request.user.is_authenticated:
-        comment_content= request.POST.get('comment_content')
-        commentId= request.POST.get('commentId')
+        comment_content = request.POST.get('comment_content')
+        comment_id = request.POST.get('commentId')
 
-        getComment = ReviewTable.objects.get(id=commentId)
-        getComment.comment=comment_content
-        getComment.save()
-        product_id = getComment.product.id
+        get_comment = ReviewTable.objects.get(id=comment_id)
+        get_comment.comment = comment_content
+        get_comment.save()
+        product_id = get_comment.product.id
 
         messages.success(request, "Review updated!")
-        return redirect(f'/products/{product_id}/')
+        return redirect('product_detail', product_id=product_id)
     else:
-        return redirect('/accounts/login/')
+        return redirect('login')
 
 
 # Delete Review View
 @login_required
 def delete_review(request, comment_id):
     if request.user.is_authenticated:
-        getComment = ReviewTable.objects.get(id=comment_id)
-        product_id=getComment.product.id
-        getComment.delete()
+        get_comment = ReviewTable.objects.get(id=comment_id)
+        product_id = get_comment.product.id
+        get_comment.delete()
         messages.success(request, "Review is deleted!")
-        return redirect(f'/products/{product_id}/')
+        return redirect('product_detail', product_id=product_id)
     else:
-        return redirect('/accounts/login/')
+        return redirect('login')
 
 
 # View to display product wishlist items
@@ -201,14 +136,20 @@ def delete_review(request, comment_id):
 def make_wishlist(request):
     product_id = request.POST.get('product_id')
     getProduct = Product.objects.get(id=product_id)
-   
-    if WishlistTable.objects.filter(user=request.user,product=getProduct):
-        WishlistTable.objects.get(user=request.user,product=getProduct).delete()
+
+    if WishlistTable.objects.filter(
+        user=request.user,
+        product=getProduct
+         ).exists():
+        WishlistTable.objects.get(
+            user=request.user,
+            product=getProduct
+            ).delete()
         return HttpResponse(False)
     else:
-        varWishlist = WishlistTable(
+        var_wishlist = WishlistTable(
             user=request.user,
             product=getProduct
         )
-        varWishlist.save()
+        var_wishlist.save()
         return HttpResponse(True)

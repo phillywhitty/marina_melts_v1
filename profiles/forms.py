@@ -29,13 +29,15 @@ class UserProfileForm(forms.ModelForm):
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'default_country':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
+                placeholder = placeholders[field]
+                placeholder += ' *' if self.fields[field].required else ''
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
-            self.fields[field].label = False
+                placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+                class_value = 'border-black rounded-0 '
+                class_value += 'profile-form-input'
+                self.fields[field].widget.attrs['class'] = class_value
+                self.fields[field].label = False
 
 
 class ExpiryDateField(forms.DateField):
@@ -48,8 +50,13 @@ class ExpiryDateField(forms.DateField):
             # If validation fails, raise a custom error
             raise ValidationError("Enter a valid expiry date in mm/yy format.")
 
+
 class MyWalletForm(forms.ModelForm):
-    expire_number = forms.CharField(max_length=5, label='Expiration Date (mm/yy)')
+    expire_number = forms.CharField(
+        max_length=5,
+        label='Expiration Date (mm/yy)'
+        )
+
     class Meta:
         model = MyWallet
         fields = ['name', 'card_number', 'expire_number', 'cvv_number']
@@ -65,5 +72,7 @@ class MyWalletForm(forms.ModelForm):
         if not expire_number:
             raise ValidationError("Expiry date is required.")
         elif not re.match(r'\d{2}/\d{2}', expire_number):
-            raise forms.ValidationError('Invalid expiration date format. Please use mm/yy format.')
+            raise forms.ValidationError(
+                'Invalid expiration date format. Please use mm/yy format.'
+                )
         return expire_number
