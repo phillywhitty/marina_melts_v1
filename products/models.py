@@ -41,7 +41,7 @@ class CommentTable(models.Model):
     product = models.ForeignKey(Product, models.CASCADE)
     comment = models.TextField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self):
         return str(self.id)
 

@@ -74,9 +74,9 @@ def WalletView(request):
 def AddWalletView(request):
     if request.user.is_authenticated:
         user = request.user
-       
+        wallet, created = MyWallet.objects.get_or_create(user=user)
         if request.method == 'POST':
-            form = MyWalletForm(request.POST)
+            form = MyWalletForm(request.POST, instance=wallet)
             if form.is_valid():
                 myWalletVar = form.save(commit=False)
                 myWalletVar.user=request.user
@@ -88,7 +88,7 @@ def AddWalletView(request):
                 # Corrected the message concatenation to properly display the error message.
                 messages.error(request, 'Update failed. Please ensure the info is valid.')
         else:
-            form = MyWalletForm()
+            form = MyWalletForm(instance=wallet)
 
 
         context = {
